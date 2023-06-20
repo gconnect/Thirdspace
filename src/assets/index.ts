@@ -41,8 +41,10 @@ import avb05 from "./avb05.svg";
 import avb06 from "./avb06.svg";
 import logo from "./logo.svg";
 import viewSub from "./viewSub.svg";
+import gmailLogo from "./Gmail.svg";
 
 export {
+  gmailLogo,
   viewSub,
   logo,
   avb01,

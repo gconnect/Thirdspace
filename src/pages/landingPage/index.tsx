@@ -1,6 +1,5 @@
 import { arrowUp } from "@/assets";
 import Logo from "@/components/Ui/Logo";
-import { ConnectButton } from "@rainbow-me/rainbowkit";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
