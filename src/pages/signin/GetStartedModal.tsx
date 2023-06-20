@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
 import { BsArrowUpRight } from "react-icons/bs";
+import { MdOutlineCancel } from "react-icons/md";
 
 type Props = {
   isVisible: boolean;
@@ -30,7 +31,7 @@ const GetStartedModal = ({ isVisible, onClose }: Props) => {
             className="text-white text-2xl absolute top-6 right-10   "
             onClick={() => onClose()}
           >
-            X
+            <MdOutlineCancel className="w-6 h-6" />
           </button>
 
           <div className="bg-black  mx-auto flex flex-col mt-10 items-center  p-14 ">
@@ -53,7 +54,7 @@ const GetStartedModal = ({ isVisible, onClose }: Props) => {
               <div className="btnBackgroundGradient  rounded-[8px] ">
                 <Link href="/" className=" "></Link>
 
-                <Link href="/available">
+                <Link href="/available-bounties">
                   <button
                     className=" text-white w-[489px] h-[56px] flex justify-center items-center gap-2"
                     onClick={() => setShowModal(true)}
