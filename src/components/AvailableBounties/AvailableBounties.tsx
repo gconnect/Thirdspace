@@ -12,9 +12,11 @@ const AvailableBounties = (props: Props) => {
   //
   return (
     <>
-      <Link href="/" className="ml-10 mb-4">
-        <Image src={logo} alt="logo" width={180} />
-      </Link>
+      <div className="ml-10 ">
+        <Link href="/">
+          <Image src={logo} alt="logo" width={180} />
+        </Link>
+      </div>
 
       <div className="overflow-hidden bg-[#0A0A0A] p-2 ">
         <div className="flex flex-row  justify-between p-4  mx-6 ">
