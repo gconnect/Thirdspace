@@ -1,3 +1,5 @@
+import { logo } from "@/assets";
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { BsArrowUpRight } from "react-icons/bs";
@@ -7,7 +9,11 @@ type Props = {};
 const GetStarted = (props: Props) => {
   return (
     <>
-      <div className="bg-black border border-[#5618FF] w-[50%] mx-auto flex flex-col mt-20 items-center  p-14 ">
+      <div className="ml-20 mb-4">
+        <Image src={logo} alt="logo" width={250} />
+      </div>
+
+      <div className="bg-black border shadow-2xl w-[50%] mx-auto flex flex-col mt-20 items-center  p-14 ">
         <h2 className="text-white font-bold text-4xl text-center font-nexa">
           Get Started
         </h2>
