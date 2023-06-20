@@ -1,18 +1,15 @@
-import Logo from "@/components/Ui/Logo";
 import Head from "next/head";
 import Link from "next/link";
 import { useState } from "react";
 import { BsArrowUpRight } from "react-icons/bs";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
-import GetStartedModal from "./GetStartedModal";
+
 import { logo } from "@/assets";
 import Image from "next/image";
-import SignUpModal from "./SignUpModal";
 
 type Props = {};
 
 const LandingPage = (props: Props) => {
-  const [showModal, setShowModal] = useState<boolean>(false);
   return (
     <>
       <div className="">
@@ -46,7 +43,7 @@ const LandingPage = (props: Props) => {
           </div>
 
           <div className="flex flex-col md:flex-row text-white gap-10 justify-center mt-10">
-            <Link href="/" className="flex   btnBorderGradient2  ">
+            <Link href="/signin" className="flex   btnBorderGradient2  ">
               <button className="flex justify-center items-center mx-auto gap-8">
                 <p className="">Sign In</p>
 
@@ -56,44 +53,16 @@ const LandingPage = (props: Props) => {
               </button>
             </Link>
             <Link
-              href="/"
+              href="/signup"
               className="btnBackgroundGradient flex w-[160px] h-[60px] rounded-[50px]"
             >
-              <button
-                className="flex justify-center items-center mx-auto gap-8"
-                onClick={() => setShowModal(true)}
-              >
+              <button className="flex justify-center items-center mx-auto gap-8">
                 <p>Sign Up</p>
                 <div className="bg-black rounded-full w-[40px] h-[40px] items-center flex justify-end ">
                   <BsArrowUpRight className=" w-6 h-6  mx-auto flex" />
                 </div>
               </button>
             </Link>
-
-            {/* Modals */}
-
-            <SignUpModal
-              isVisible={showModal}
-              onClose={() => setShowModal(false)}
-            />
-
-            <Link href="/"></Link>
-
-            {/* <button
-              className="flex w-[250px] h-[50px] rounded-full  justify-center items-center mx-auto btnBackgroundGradient font-extrabold text-3xl"
-              onClick={() => setShowModal(true)}
-            >
-              Get Started
-            </button> */}
-
-            {/* GetStarted Modal */}
-
-            {/* <div>
-              <GetStartedModal
-                isVisible={showModal}
-                onClose={() => setShowModal(false)}
-              />
-            </div> */}
           </div>
         </div>
       </div>
