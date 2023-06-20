@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { BsArrowUpRight } from "react-icons/bs";
+import { MdOutlineCancel } from "react-icons/md";
 
 type Props = {
   isVisible: boolean;
@@ -36,10 +37,10 @@ const BountyDetailModal = ({ isVisible, onClose, selectedBounty }: Props) => {
       <div className=" w-[1200px] h-[600px] bg-[#0F0F0F] flex flex-col relative">
         <div className="p-2 rounded shadow-2xl ">
           <button
-            className="text-white text-2xl absolute top-2 right-6"
+            className="text-white text-2xl absolute top-6 right-6"
             onClick={onClose}
           >
-            X
+            <MdOutlineCancel className="w-6 h-6" />
           </button>
 
           <div className="flex flex-row mt-10 font-nexa gap-4 mx-4  p-4 text-white   ">
@@ -111,7 +112,7 @@ const BountyDetailModal = ({ isVisible, onClose, selectedBounty }: Props) => {
                 <button></button>
 
                 <Link
-                  href="/hunter"
+                  href="/creator"
                   className="font-nexa btnBackgroundGradient rounded-[8px] w-[220px] h-[50px] items-center justify-center flex flex-row gap-2"
                 >
                   <p className="">Join Bounty space</p>
