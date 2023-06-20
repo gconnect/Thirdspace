@@ -1,14 +1,7 @@
-import { BountyPlatformContext } from "@/context/BountyPlatformContext";
-import { ConnectButton } from "@rainbow-me/rainbowkit";
-import React, { useContext } from "react";
 import { useState } from "react";
 import { BsArrowUpRight } from "react-icons/bs";
-import ConnectWallet from "../Home/ConnectWallet";
-import ConnectWalletModal from "./ConnectWalletModal";
+
 import SuccessPageModal from "./SuccessPageModal";
-import Web3Modal from "web3modal";
-import { ethers } from "ethers";
-import { spawn } from "child_process";
 
 // import {Input} from "@chakra-ui/react"
 
@@ -21,6 +14,7 @@ const CreateBountyForm = (props: Props) => {
   const [startDate, setStartDate] = useState<any>();
   const [endDate, setEndDate] = useState<any>();
   const [description, setDescription] = useState("");
+  const [isFormValid, setIsFormValid] = useState(false);
 
   const [isLoading, setIsLoading] = useState(false);
   const [showSuccessPage, setShowSuccessPage] = useState<boolean>(false);
@@ -28,35 +22,55 @@ const CreateBountyForm = (props: Props) => {
   // onChange Handler functions
   const titleChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     setTitle(e.target.value);
+    checkFormValidity();
   };
 
   const repoLinkChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     setRepoLink(e.target.value);
+    checkFormValidity();
   };
 
   const amountChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     setAmount(e.target.value);
+    checkFormValidity();
   };
 
   const startDateChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     setStartDate(new Date(e.target.value));
+    checkFormValidity();
   };
 
   const endDateChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     setEndDate(new Date(e.target.value));
+    checkFormValidity();
   };
 
   const descriptionChangeHandler = (
     e: React.ChangeEvent<HTMLTextAreaElement>
   ) => {
     setDescription(e.target.value);
+    checkFormValidity();
+  };
+
+  const checkFormValidity = () => {
+    if (
+      title.trim() !== "" &&
+      repoLink.trim() !== "" &&
+      amount.trim() !== "" &&
+      startDate !== undefined &&
+      endDate !== undefined &&
+      description.trim() !== ""
+    ) {
+      setIsFormValid(true);
+    } else {
+      setIsFormValid(false);
+    }
   };
 
   const formSubmitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     setIsLoading(true);
-
 
     try {
       const response = await fetch(
@@ -153,7 +167,7 @@ const CreateBountyForm = (props: Props) => {
               <label htmlFor="startDate">Start Date</label>
               <input
                 onChange={startDateChangeHandler}
-                defaultValue={startDate??""}
+                defaultValue={startDate ?? ""}
                 type="date"
                 name="startDate"
                 id="startDate"
@@ -199,6 +213,7 @@ const CreateBountyForm = (props: Props) => {
             type="submit"
             className="font-nexa btnBackgroundGradient rounded-[8px] items-center justify-center flex flex-row gap-2 w-[948px] h-[48px] "
             onClick={() => setShowSuccessPage(true)}
+            disabled={!isFormValid}
           >
             <p className="">Confirm</p>
             <BsArrowUpRight className=" w-6 h-6 " />
@@ -209,7 +224,13 @@ const CreateBountyForm = (props: Props) => {
       {/* Success Page Modal */}
 
       {isLoading ? (
-        <span>Loading....</span>
+        <div className="flex items-center justify-center -mt-32">
+          <div className="h-36 w-36 relative">
+            <div className="absolute top-0 right-0 bottom-0 left-0 flex items-center justify-center">
+              <div className="w-36 h-36 border-4 buttonGradient rounded-full animate-spin"></div>
+            </div>
+          </div>
+        </div>
       ) : (
         <div>
           {showSuccessPage && (
