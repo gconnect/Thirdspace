@@ -36,7 +36,7 @@ const LandingPage = (props: Props) => {
 
           <div className="text-center text-white font-normal  mt-10 font-nexa  text-sm   ">
             <p className="leading-6">
-              Connect your GitHub account, join bounties, and earn rewards for
+              Join bounties, and earn rewards for
               your coding skills. Our smart <br /> contracts ensure fair payouts
               and easy payment processing
             </p>
