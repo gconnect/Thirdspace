@@ -30,15 +30,15 @@ const LandingPage = (props: Props) => {
           </div>
 
           <h1 className="text-center text-white font-extrabold text-6xl  font-nexa items-center justify-center mt-20 ">
-            Get Paid for your<br />{" "}
-            <span className="logoGradient">Git Contributions</span>
+            Get Paid for your <span className="logoGradient">Git</span><br />{" "}
+            <span className="logoGradient">Contributions</span>
           </h1>
 
           <div className="text-center text-white font-normal  mt-10 font-nexa  text-sm   ">
             <p className="leading-6">
               Join bounties, and earn rewards for
-              your coding skills. Our smart <br /> contracts ensure fair payouts
-              and easy payment processing
+              your coding skills and open source contributions. Our smart <br /> contracts ensure fair payouts
+              and easy payment processing.
             </p>
           </div>
 
