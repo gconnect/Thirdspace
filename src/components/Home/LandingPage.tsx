@@ -30,8 +30,8 @@ const LandingPage = (props: Props) => {
           </div>
 
           <h1 className="text-center text-white font-extrabold text-6xl  font-nexa items-center justify-center mt-20 ">
-            The Next Gen All-In-One <br />{" "}
-            <span className="logoGradient">Workspace</span>
+            Get Paid for your<br />{" "}
+            <span className="logoGradient">Git Contributions</span>
           </h1>
 
           <div className="text-center text-white font-normal  mt-10 font-nexa  text-sm   ">
