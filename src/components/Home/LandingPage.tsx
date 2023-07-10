@@ -37,7 +37,7 @@ const LandingPage = (props: Props) => {
           <div className="text-center text-white font-normal  mt-10 font-nexa  text-sm   ">
             <p className="leading-6">
               Join bounties, and earn rewards for
-              your coding skills and open source contributions. Our smart <br /> contracts ensure fair payouts
+              your coding skills and open source contributionsa. Our smart <br /> contracts ensure fair payouts
               and easy payment processing.
             </p>
           </div>
