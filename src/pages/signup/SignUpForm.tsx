@@ -128,7 +128,7 @@ const SignUpForm = (props: Props) => {
 
         <button
           type="submit"
-          className="mt-[50px]  item just btnBackgroundGradient rounded-[8px] h-[50px] w-full text-xl font-bold "
+          className="mt-[50px]  item just hover:btnBackgroundGradient bg-[#141414] cursor-pointer rounded-[8px] h-[50px] w-full text-xl font-bold "
           onClick={() => setShowModal(true)}
           disabled={!isFormValid}
         >
