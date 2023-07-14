@@ -73,10 +73,10 @@ const SignUpForm = (props: Props) => {
 
   return (
     <>
-      <form onSubmit={formSubmitHandler} action="" className="font-nexa ">
+      <form onSubmit={formSubmitHandler} action="" className="font-dmSans">
         <div className="space-y-[16px] ">
           <div className="flex flex-col space-y-1">
-            <label htmlFor="email" className="text-xl">
+            <label htmlFor="email" className="font-medium text-lg">
               Email
             </label>
             <input
@@ -92,7 +92,7 @@ const SignUpForm = (props: Props) => {
           </div>
 
           <div className="flex flex-col space-y-1">
-            <label htmlFor="password" className="text-xl">
+            <label htmlFor="password" className="font-medium text-lg">
               Password
             </label>
             <input
@@ -108,7 +108,7 @@ const SignUpForm = (props: Props) => {
           </div>
 
           <div className="flex flex-col space-y-1">
-            <label htmlFor="confirmPassword" className="text-xl">
+            <label htmlFor="confirmPassword" className="font-medium text-lg">
               Confirm Password
             </label>
             <input
@@ -128,7 +128,7 @@ const SignUpForm = (props: Props) => {
 
         <button
           type="submit"
-          className="mt-[50px]  item just hover:btnBackgroundGradient bg-[#141414] cursor-pointer rounded-[8px] h-[50px] w-full text-xl font-bold "
+          className="mt-[50px]  item just hover:btnBackgroundGradient bg-[#141414] cursor-pointer rounded-[8px] h-[50px] w-full  font-semibold text-lg"
           onClick={() => setShowModal(true)}
           disabled={!isFormValid}
         >
@@ -136,8 +136,8 @@ const SignUpForm = (props: Props) => {
         </button>
 
         <div className="flex flex-rwo gap-2 items-center justify-center mt-2 text-base">
-          <p>Already have an account?</p>
-          <Link href="/signin" className="font-bold text-xl">
+          <p className="font-medium text-lg">Already have an account?</p>
+          <Link href="/signin" className="font-semibold text-lg">
             Log In
           </Link>
         </div>
