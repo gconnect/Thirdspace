@@ -5,7 +5,7 @@ type PublicLayoutProps = { children: ReactNode };
 
 const PublicLayout = ({ children }: PublicLayoutProps) => {
   return (
-    <div className="landingPage">
+    <div className="">
       <ChakraProvider>
         <div>{children}</div>
       </ChakraProvider>

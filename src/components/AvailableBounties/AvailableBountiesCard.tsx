@@ -40,15 +40,15 @@ const AvailableBountiesCard = (props: any) => {
               <Image
                 src={viewAvailableBounty.image}
                 alt="bountyImage"
-                width={150}
+                width={100}
                 className=""
               />
 
               <div className="flex flex-col mt-3">
-                <h2 className="font-nexa font-bold text-xl">
+                <h2 className="font-dmSans font-bold text-base">
                   {viewAvailableBounty.title}
                 </h2>
-                <div className="flex flex-row justify-between font-nexa text-sm my-2 mr-6">
+                <div className="flex flex-row justify-between font-dmSans text-xs my-2 mr-6">
                   <p>
                     <span className="text-[#999999]">Start Date: </span>
                     {viewAvailableBounty.startDate}
@@ -59,13 +59,15 @@ const AvailableBountiesCard = (props: any) => {
                   </p>
                 </div>
 
-                <p className="font-nexa text-sm mb-2 text-[#999999]">
+                <p className="font-dmSans font-normal text-xs mb-2 text-[#999999]">
                   {viewAvailableBounty.description}
                 </p>
               </div>
 
-              <div className="flex justify-center w-[150px] h-[40px] bg-[#1F1F1F] items-center absolute bottom-1 right-6">
-                <p>{viewAvailableBounty.reward}</p>
+              <div className="flex justify-center w-[120px] h-[30px] bg-[#1F1F1F] items-center absolute bottom-1 right-6">
+                <p className="font font-bold text-xs">
+                  {viewAvailableBounty.reward}
+                </p>
               </div>
             </div>
           </div>

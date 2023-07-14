@@ -43,9 +43,9 @@ const BountyDetailModal = ({ isVisible, onClose, selectedBounty }: Props) => {
             <MdOutlineCancel className="w-6 h-6" />
           </button>
 
-          <div className="flex flex-row mt-10 font-nexa gap-4 mx-4  p-4 text-white   ">
+          <div className="flex flex-row mt-10 font-dmSans gap-4 mx-4  p-4 text-white   ">
             <div className="flex flex-col  ">
-              <div className="flex flex-row gap-4 ">
+              <div className="flex flex-row gap-4">
                 <Image
                   src={selectedBounty.image}
                   alt="bountyImage"
@@ -54,10 +54,10 @@ const BountyDetailModal = ({ isVisible, onClose, selectedBounty }: Props) => {
                 />
 
                 <div className="flex flex-col mt-3">
-                  <h2 className="font-nexa font-bold text-xl">
+                  <h2 className="font-dmSans font-bold text-xl">
                     {selectedBounty.title}
                   </h2>
-                  <div className="flex flex-row justify-between font-nexa text-sm my-2 mr-6">
+                  <div className="flex flex-row justify-between font-dmSans text-sm my-2 mr-6">
                     <p>
                       <span className="text-[#999999]">Start Date: </span>
                       {selectedBounty.startDate}
@@ -69,7 +69,7 @@ const BountyDetailModal = ({ isVisible, onClose, selectedBounty }: Props) => {
                   </div>
                   <h2 className="font-bold text-lg">Scope</h2>
 
-                  <p className="font-nexa text-sm mb-2 text-[#999999]  ">
+                  <p className="font-dmSans text-sm mb-2 text-[#999999]  ">
                     {selectedBounty.description}
                   </p>
                 </div>
@@ -81,12 +81,12 @@ const BountyDetailModal = ({ isVisible, onClose, selectedBounty }: Props) => {
                   <div className="flex flex-col space-y-2  text-white">
                     <h2 className="font-bold text-lg">Background</h2>
 
-                    <p className=" font-nexa text-sm  text-[#999999] ">
+                    <p className=" font-dmSans text-sm  text-[#999999] ">
                       {bountyDetail.background}
                     </p>
 
                     <h2 className="font-bold text-lg">Requirement</h2>
-                    <p className="font-nexa text-sm mb-10 text-[#999999] ">
+                    <p className="font-dmSans text-sm mb-10 text-[#999999] ">
                       {" "}
                       {bountyDetail.requirement}
                     </p>
@@ -113,7 +113,7 @@ const BountyDetailModal = ({ isVisible, onClose, selectedBounty }: Props) => {
 
                 <Link
                   href="/creator"
-                  className="font-nexa btnBackgroundGradient rounded-[8px] w-[220px] h-[50px] items-center justify-center flex flex-row gap-2"
+                  className="font-dmSans btnBackgroundGradient rounded-[8px] w-[220px] h-[50px] items-center justify-center flex flex-row gap-2"
                 >
                   <p className="">Join Bounty space</p>
                   <BsArrowUpRight className=" w-6 h-6 " />
