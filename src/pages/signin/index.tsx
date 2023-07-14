@@ -16,10 +16,8 @@ const SigInPage = (props: Props) => {
           </Link>
         </div>
 
-        <div className=" mx-auto w-[500px] h-[600px] bg-[#0F0F0F] flex flex-col text-white -mt-16 shadow-inner ">
+        <div className=" mx-6 mt-6 md:mx-auto w-[450px] md:w-[500px] h-[600px] bg-[#0F0F0F] flex flex-col text-white md:-mt-12 shadow-inner ">
           <div className=" p-2 rounded">
-            <button className="text-white text-2xl absolute top-8 right-10   "></button>
-
             <div className="flex flex-col mt-5 mx-[48px]">
               <h2 className="text-white font-bold text-2xl text-center font-dmSans">
                 Sign In
