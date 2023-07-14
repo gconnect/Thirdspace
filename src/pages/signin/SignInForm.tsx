@@ -3,7 +3,7 @@ import React, { useState } from "react";
 
 type Props = {};
 
-const SignUpForm = (props: Props) => {
+const SignInForm = (props: Props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isFormValid, setIsFormValid] = useState(false);
@@ -55,10 +55,10 @@ const SignUpForm = (props: Props) => {
 
   return (
     <>
-      <form onSubmit={formSubmitHandler} action="" className="font-nexa ">
+      <form onSubmit={formSubmitHandler} action="" className="font-dmSans">
         <div className="space-y-[16px] ">
           <div className="flex flex-col space-y-1">
-            <label htmlFor="email" className="text-xl">
+            <label htmlFor="email" className="font-medium text-lg">
               Email
             </label>
             <input
@@ -74,7 +74,7 @@ const SignUpForm = (props: Props) => {
           </div>
 
           <div className="flex flex-col space-y-1">
-            <label htmlFor="password" className="text-xl">
+            <label htmlFor="password" className="font-medium text-lg">
               Password
             </label>
             <input
@@ -100,9 +100,9 @@ const SignUpForm = (props: Props) => {
           </button>
         </Link>
 
-        <div className="flex flex-rwo gap-2 items-center justify-center mt-2 text-base">
-          <p> Don’t have an account? </p>
-          <Link href="/signup" className="font-bold text-xl">
+        <div className="flex flex-row  gap-2 items-center justify-center mt-2 text-base">
+          <p className="font-medium text-lg"> Don’t have an account? </p>
+          <Link href="/signup" className="font-semibold text-lg">
             Sign Up
           </Link>
         </div>
@@ -111,4 +111,4 @@ const SignUpForm = (props: Props) => {
   );
 };
 
-export default SignUpForm;
+export default SignInForm;
