@@ -7,7 +7,7 @@ type Props = {};
 const SignUpForm = (props: Props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
+  const [fullName, setFullName] = useState("");
   const [isFormValid, setIsFormValid] = useState(false);
 
   const [isLoading, setIsLoading] = useState(false);
@@ -24,10 +24,8 @@ const SignUpForm = (props: Props) => {
     checkFormValidity();
   };
 
-  const confirmPasswordChangeHandler = (
-    e: React.ChangeEvent<HTMLInputElement>
-  ) => {
-    setConfirmPassword(e.target.value);
+  const fullNameChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFullName(e.target.value);
     checkFormValidity();
   };
 
@@ -36,7 +34,7 @@ const SignUpForm = (props: Props) => {
       email.trim() !== "" &&
       email.includes("@") &&
       password.trim() !== "" &&
-      confirmPassword.trim() !== ""
+      fullName.trim() !== ""
     ) {
       setIsFormValid(true);
     } else {
@@ -64,7 +62,7 @@ const SignUpForm = (props: Props) => {
 
       setEmail("");
       setPassword("");
-      setConfirmPassword("");
+      setFullName("");
     } catch (error) {
       console.log(error);
       setIsLoading(false);
@@ -75,6 +73,21 @@ const SignUpForm = (props: Props) => {
     <>
       <form onSubmit={formSubmitHandler} action="" className="font-dmSans">
         <div className="space-y-[16px] ">
+          <div className="flex flex-col space-y-1">
+            <label htmlFor="fullName" className="font-medium text-lg">
+              Full Name
+            </label>
+            <input
+              value={fullName}
+              onChange={fullNameChangeHandler}
+              type="text"
+              name="fullName"
+              id="fullName"
+              required
+              placeholder="Type here"
+              className="signUpInput"
+            />
+          </div>
           <div className="flex flex-col space-y-1">
             <label htmlFor="email" className="font-medium text-lg">
               Email
@@ -101,22 +114,6 @@ const SignUpForm = (props: Props) => {
               type="password"
               name="password"
               id="password"
-              required
-              placeholder="Type here"
-              className="signUpInput"
-            />
-          </div>
-
-          <div className="flex flex-col space-y-1">
-            <label htmlFor="confirmPassword" className="font-medium text-lg">
-              Confirm Password
-            </label>
-            <input
-              value={confirmPassword}
-              onChange={confirmPasswordChangeHandler}
-              type="password"
-              name="confirmPassword"
-              id="confirmPassword"
               required
               placeholder="Type here"
               className="signUpInput"
