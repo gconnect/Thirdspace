@@ -34,7 +34,7 @@ input {
   font-weight: bold;
 }
 
-.landingPage {
+.bkLandingPage {
   background-image: url("../assets/backgorundImage.png");
   background-size: cover;
   background-position: center;
@@ -368,6 +368,6 @@ input {
   /* Sign Up Form */
 
   .signUpInput {
-    @apply border border-[#1F1F1F] text-white placeholder:text-[#999999] outline-none h-[40px]  pl-2 bg-transparent w-full;
+    @apply border border-[#1F1F1F] text-white placeholder:text-[#999999] outline-none h-[40px]  pl-2 bg-transparent w-full font-normal text-sm;
   }
 }
