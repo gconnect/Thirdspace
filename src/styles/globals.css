@@ -34,7 +34,7 @@ input {
   font-weight: bold;
 }
 
-.landingPage {
+.bkLandingPage {
   background-image: url("../assets/backgorundImage.png");
   background-size: cover;
   background-position: center;
