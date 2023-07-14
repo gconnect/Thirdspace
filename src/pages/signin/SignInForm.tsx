@@ -93,7 +93,7 @@ const SignInForm = (props: Props) => {
         <Link href="available-bounties">
           <button
             type="submit"
-            className="mt-[50px]  item just bg-[#141414] hover:btnBackgroundGradient...  cursor-pointer rounded-[8px] h-[50px] w-full text-xl font-bold "
+            className="mt-[50px]  item just bg-[#141414] hover:btnBackgroundGradient...  cursor-pointer rounded-[8px] h-[50px] w-full font-semibold text-lg  "
             disabled={!isFormValid}
           >
             Proceed
