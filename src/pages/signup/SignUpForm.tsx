@@ -1,4 +1,4 @@
-import GetStartedModal from "@/pages/signin/GetStartedModal";
+import GetStartedModal from "@/pages/signup/GetStartedModal";
 import Link from "next/link";
 import React, { useState } from "react";
 
@@ -129,8 +129,6 @@ const SignUpForm = (props: Props) => {
             />
           </div>
         </div>
-
-        <Link href="/get-started"></Link>
 
         <button
           type="submit"
