@@ -9,14 +9,15 @@ type Props = {};
 const SigInPage = (props: Props) => {
   return (
     <>
-      <div className="bg-[#050505] h-screen">
-        <div className="ml-10 mb-4">
+  
+      <div className="bg-[#050505] h-screen ">
+        <div className="ml-10 mb-4 py-6"> dev
           <Link href="/">
             <Image src={logo} alt="logo" width={180} />
           </Link>
         </div>
 
-        <div className=" mx-6 mt-6 md:mx-auto w-[450px] md:w-[500px] h-[600px] bg-[#0F0F0F] flex flex-col text-white md:-mt-12 shadow-inner ">
+        <div className=" mx-6 mt-6 md:mx-auto w-[450px] md:w-[500px] h-[550px] bg-[#0F0F0F] flex flex-col text-white md:-mt-12 shadow-inner ">
           <div className=" p-2 rounded">
             <div className="flex flex-col mt-5 mx-[48px]">
               <h2 className="text-white font-bold text-2xl text-center font-dmSans">

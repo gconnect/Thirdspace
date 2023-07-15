@@ -72,9 +72,12 @@ const SignUpForm = (props: Props) => {
   return (
     <>
       <form onSubmit={formSubmitHandler} action="" className="font-dmSans">
-        <div className="space-y-[16px] ">
+        <div className="space-y-[8px] md:space-y-[16px] ">
           <div className="flex flex-col space-y-1">
-            <label htmlFor="fullName" className="font-medium text-lg">
+            <label
+              htmlFor="fullName"
+              className="font-normal md:font-medium text-base md:text-lg"
+            >
               Full Name
             </label>
             <input
@@ -89,7 +92,10 @@ const SignUpForm = (props: Props) => {
             />
           </div>
           <div className="flex flex-col space-y-1">
-            <label htmlFor="email" className="font-medium text-lg">
+            <label
+              htmlFor="email"
+              className="font-normal md:font-medium text-base md:text-lg"
+            >
               Email
             </label>
             <input
@@ -105,7 +111,10 @@ const SignUpForm = (props: Props) => {
           </div>
 
           <div className="flex flex-col space-y-1">
-            <label htmlFor="password" className="font-medium text-lg">
+            <label
+              htmlFor="password"
+              className="font-normal md:font-medium text-base md:text-lg "
+            >
               Password
             </label>
             <input
@@ -125,7 +134,7 @@ const SignUpForm = (props: Props) => {
 
         <button
           type="submit"
-          className="mt-[50px]  item just hover:btnBackgroundGradient bg-[#141414] cursor-pointer rounded-[8px] h-[50px] w-full  font-semibold text-lg"
+          className="mt-[30px] md:mt-[50px]  item just hover:btnBackgroundGradient bg-[#141414] cursor-pointer rounded-[8px] h-[50px] w-full  font-semibold  text-base md:text-lg"
           onClick={() => setShowModal(true)}
           disabled={!isFormValid}
         >
@@ -133,14 +142,16 @@ const SignUpForm = (props: Props) => {
         </button>
 
         <div className="flex flex-rwo gap-2 items-center justify-center mt-2 text-base">
-          <p className="font-medium text-lg">Already have an account?</p>
-          <Link href="/signin" className="font-semibold text-lg">
+          <p className=" font-normal text-base md:font-medium md:text-lg">
+            Already have an account?
+          </p>
+          <Link href="/signin" className="font-semibold text-base md:text-lg">
             Log In
           </Link>
         </div>
 
         {isLoading ? (
-          <div className="flex items-center justify-center -mt-32">
+          <div className="flex items-center justify-center -mt-80 ">
             <div className="h-36 w-36 relative">
               <div className="absolute top-0 right-0 bottom-0 left-0 flex items-center justify-center">
                 <div className="w-36 h-36 border-4 buttonGradient rounded-full animate-spin"></div>
