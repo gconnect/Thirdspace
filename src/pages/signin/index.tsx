@@ -9,7 +9,7 @@ type Props = {};
 const SigInPage = (props: Props) => {
   return (
     <>
-      <div className="bg-[#050505] h-full">
+      <div className="bg-[#050505] h-screen">
         <div className="ml-10 mb-4">
           <Link href="/">
             <Image src={logo} alt="logo" width={180} />
