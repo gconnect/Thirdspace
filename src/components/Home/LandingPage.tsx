@@ -21,8 +21,8 @@ const LandingPage = (props: Props) => {
 
         {/* Desktop View */}
 
-        <div className="hidden md:flex flex-col">
-          <div className="flex justify-between mx-12 ">
+        <div className="hidden md:flex flex-col ">
+          <div className="flex justify-between mx-12 mt-10 ">
             <Image src={logo} alt="logo" width={180} />
           </div>
 
