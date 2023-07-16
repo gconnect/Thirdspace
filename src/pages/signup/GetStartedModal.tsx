@@ -25,7 +25,7 @@ const GetStartedModal = ({ isVisible, onClose }: Props) => {
       id="wrapper"
       onClick={handleClose}
     >
-      <div className="w-[800px] h-[600px] bg-black flex flex-col relative ">
+      <div className="  w-[420px] md:w-[600px] h-[450px] bg-black flex flex-col relative ">
         <div className=" p-2 rounded">
           <button
             className="text-white text-2xl absolute top-6 right-10   "
@@ -34,19 +34,18 @@ const GetStartedModal = ({ isVisible, onClose }: Props) => {
             <MdOutlineCancel className="w-6 h-6" />
           </button>
 
-          <div className="bg-black  mx-auto flex flex-col mt-10 items-center  p-14 ">
-            <h2 className="text-white font-bold text-4xl text-center font-nexa">
+          <div className="  mx-auto flex flex-col  items-center  px-10 md:px-14 py-10">
+            <h2 className="text-white font-bold text-2xl text-center font-dmSans">
               Get Started
             </h2>
 
             <p
-              className="text-[#999999] text-center mt-4 font-nexa
+              className="text-[#999999] text-center mt-4 font-dmSans font-normal
         "
             >
               Find your next coding challenge or create your own. Our platform
-              allows <br /> developers to connect, collaborate, and earn rewards
-              through <br />
-              completing bounties
+              allows developers to connect, collaborate, and earn rewards
+              through completing bounties
             </p>
 
             <div className="flex flex-col items-center  mt-10">
@@ -56,7 +55,7 @@ const GetStartedModal = ({ isVisible, onClose }: Props) => {
 
                 <Link href="/available-bounties">
                   <button
-                    className=" text-white w-[489px] h-[56px] flex justify-center items-center gap-2"
+                    className=" text-white w-[300px] md:w-[489px] h-[45px] flex justify-center items-center gap-2 font-medium  text-lg"
                     onClick={() => setShowModal(true)}
                   >
                     View Available Bounties
@@ -66,18 +65,19 @@ const GetStartedModal = ({ isVisible, onClose }: Props) => {
               </div>
 
               {/* Or Container */}
-              <div className="flex w-[489px] justify-between items-center mt-6 ">
-                <div className="w-[210px] h-[2px] bg-[#1f1f1f]  "></div>
+              <div className="hidden md:flex w-[489px] justify-between items-center mt-3 ">
+                <div className="w-[210px] h-[2px] bg-[#1f1f1f]   "></div>
 
                 <p className="text-[#999999]">Or</p>
 
-                <div className="w-[210px] h-[2px] bg-[#1f1f1f]  "></div>
+                <div className="w-[210px] h-[2px] bg-[#1f1f1f] "></div>
               </div>
 
               {/* Create Bounty Space Container */}
-              <div className=" btnBorderGradient flex mt-6">
+
+              <div className="  btnBorderGradient  mt-6 md:mt-3">
                 <Link href="/bounty-space" className=" ">
-                  <button className=" text-white w-[489px] h-[56px] flex justify-center items-center gap-2  ">
+                  <button className=" text-white w-[300px] md:w-[489px] h-[45px] flex justify-center items-center gap-2 font-medium text-lg">
                     Create Bounty Space
                     <BsArrowUpRight className=" w-6 h-6" />
                   </button>
