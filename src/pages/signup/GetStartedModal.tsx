@@ -1,5 +1,3 @@
-import { success } from "@/assets";
-import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
 import { BsArrowUpRight } from "react-icons/bs";
@@ -12,7 +10,6 @@ type Props = {
 };
 
 const GetStartedModal = ({ isVisible, onClose }: Props) => {
-  const [showModal, setShowModal] = useState<boolean>(false);
   if (!isVisible) return null;
 
   const handleClose = (e: any) => {
@@ -54,10 +51,7 @@ const GetStartedModal = ({ isVisible, onClose }: Props) => {
                 <Link href="/" className=" "></Link>
 
                 <Link href="/available-bounties">
-                  <button
-                    className=" text-white w-[300px] md:w-[489px] h-[45px] flex justify-center items-center gap-2 font-medium  text-lg"
-                    onClick={() => setShowModal(true)}
-                  >
+                  <button className=" text-white w-[300px] md:w-[489px] h-[45px] flex justify-center items-center gap-2 font-medium  text-lg">
                     View Available Bounties
                     <BsArrowUpRight className=" w-6 h-6" />
                   </button>
@@ -77,7 +71,10 @@ const GetStartedModal = ({ isVisible, onClose }: Props) => {
 
               <div className="  btnBorderGradient  mt-6 md:mt-3">
                 <Link href="/bounty-space" className=" ">
-                  <button className=" text-white w-[300px] md:w-[489px] h-[45px] flex justify-center items-center gap-2 font-medium text-lg">
+                  <button
+                    className=" text-white w-[300px] md:w-[489px] h-[45px] flex justify-center items-center gap-2 font-medium text-lg"
+                    // onClick={() => setShowModal(true)}
+                  >
                     Create Bounty Space
                     <BsArrowUpRight className=" w-6 h-6" />
                   </button>
