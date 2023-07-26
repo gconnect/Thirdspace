@@ -8,6 +8,8 @@ import { AiOutlinePlus } from "react-icons/ai";
 import { FaMedal } from "react-icons/fa";
 import BountyOrganizationCard from "./BountyOrganizationCard";
 import CreateBountyModal from "./CreateBountyModal";
+import Members from "@/components/Members/Members";
+
 
 
 
