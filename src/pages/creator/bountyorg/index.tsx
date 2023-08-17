@@ -11,6 +11,8 @@ const BountyOrganizationPage = (props: Props) => {
         <title>Bounties | ThridSpace</title>
       </Head>
       <BountyOrganization />
+     
+
     </div>
   );
 };

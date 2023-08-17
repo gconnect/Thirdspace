@@ -32,6 +32,14 @@ const BountyOrganizationCard = (props: Props) => {
             Bounty Organization
           </h2>
         </Link>
+        <Link href="/creator/members">
+          <h2
+            className={isActive ? "" : "text-[#999999]"}
+            onClick={toggleActiveLink}
+          >
+            Members
+          </h2>
+        </Link>
       </div>
 
       <div className="grid grid-cols-3">

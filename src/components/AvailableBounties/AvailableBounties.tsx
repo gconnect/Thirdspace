@@ -27,7 +27,9 @@ const AvailableBounties = (props: Props) => {
               <h2 className="text-white  font-dmSans font-extrabold text-xl md:text-2xl ml-4 md:ml-0 ">
                 Available Bounties
               </h2>
-            </div>
+              
+          </div>
+          
 
             {/* Search */}
             <div className="flex w-full md:w-1/3  bg-[#0F0F0F] rounded-full items-center  ">
@@ -40,7 +42,14 @@ const AvailableBounties = (props: Props) => {
                 className="w-full  outline-none  text-white py-1 md:py-2 px-4 bg-[#0F0F0F] rounded-full "
               />
             </div>
-          </div>
+            
+        </div>
+        <div className="">
+          <Link href="/"> 
+            <Image src="/arrow.svg" alt=""  className="ml-[2.3rem]" width={35} height={35}/>
+            
+            </Link>
+            </div>
 
           <div>
             <AvailableBountiesCard />

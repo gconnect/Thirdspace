@@ -69,6 +69,10 @@ const AvailableBountiesCard = (props: Props) => {
         <Link href="/creator/bountyorg">
           <h2 className="text-[#999999]">Bounty Organization</h2>
         </Link>
+        <Link href="/creator/members">
+          <h2 className="text-[#999999]">Members</h2>
+        </Link>
+        
       </div>
 
       {availableBounties &&
