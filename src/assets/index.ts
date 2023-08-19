@@ -42,7 +42,9 @@ import avb06 from "./avb06.svg";
 import logo from "./logo.svg";
 import viewSub from "./viewSub.svg";
 import gmailLogo from "./Gmail.svg";
-
+import bountyButton from "./bounty_button.png"
+import modeIcon from "./mode_icon.svg"
+import menuIcon from "./hamburger.png"
 export {
   gmailLogo,
   viewSub,
@@ -88,4 +90,7 @@ export {
   phanthom,
   metaMask,
   flow2,
+  bountyButton,
+  modeIcon,
+  menuIcon
 };

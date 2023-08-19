@@ -1,14 +1,20 @@
 import Head from "next/head";
 import Link from "next/link";
-
+import { NavItems } from "../Header/NavLink";
 import { BsArrowUpRight } from "react-icons/bs";
-
-import { logo } from "@/assets";
+import Router from "next/router";
+import { logo, bountyButton, modeIcon, menuIcon } from "@/assets";
 import Image from "next/image";
+import { useState } from "react";
 
 type Props = {};
 
 const LandingPage = (props: Props) => {
+const [show, setShow] = useState(false)
+
+  const toggleMobile = () =>{
+    setShow(true)
+  }
   return (
     <>
       <div className=" font-dmSans homeBackgroundImage">
@@ -22,8 +28,19 @@ const LandingPage = (props: Props) => {
         {/* Desktop View */}
 
         <div className="hidden md:flex flex-col ">
-          <div className="flex justify-between mx-12 mt-10 ">
+          <div className="flex  justify-around  mt-10 ">
             <Image src={logo} alt="logo" width={180} />
+            <div className="flex font-dmSans">
+              {NavItems.map((item, index) => <div className="" key={index}>
+                <Link className="cursor focus:text-purple-500 active:text-purple-500" href={item.link}>
+                  <p className="mx-8 mt-3 text-white">{item.title}</p>
+                </Link>
+              </div>)}
+              <Link href="">
+                <Image src={bountyButton} width="150" height="150" alt="bounty button"/>
+              </Link>
+              <Image className="mx-4 mb-2" src={modeIcon} width="36" height="36" alt="mode icon"/>
+            </div>     
           </div>
 
           <h1 className="text-center text-white font-extrabold text-6xl  font-dmSans items-center justify-center mt-20 leading-[70px] ">
@@ -67,9 +84,28 @@ const LandingPage = (props: Props) => {
         </div>
 
         {/* Mobile View */}
-        <div className="flex flex-col  md:hidden">
-          <div className="flex flex-col mx-8 ">
+        <div className="flex flex-col md:hidden">
+          <div className="flex justify-between mx-8 pt-4">
             <Image src={logo} alt="logo" width={180} />
+            <Image src={menuIcon} alt="logo" width={36} onClick={toggleMobile}/>
+            {show ? <div className="absolute inset-0  bg-white block">
+              <div className="flex flex-col  mt-10 font-dmSans text-lg m-8 ">
+                <div className="flex justify-between">
+                  <Image src={logo} alt="logo" width={180} />
+                  <p className="text-2xl border rounded-full" onClick={() => setShow(false)}>X</p>
+                </div>              
+                  {NavItems.map((item, index) => <div className="" key={index}>
+                    <Link className="cursor focus:text-purple-500 active:text-purple-500" href={item.link}>
+                      <p className="mx-8 mt-3 text-black">{item.title}</p>
+                    </Link>
+                  </div>)}
+                  <Link href="">
+                    <Image className="mt-4" src={bountyButton} width="150" height="150" alt="bounty button"/>
+                  </Link>
+                  <Image className="mx-4 mt-4" src={modeIcon} width="36" height="36" alt="mode icon"/>
+                </div>     
+            </div> : null
+            }
           </div>
 
           <h1 className="text-center text-white font-extrabold text-3xl   font-dmSans items-center justify-center mt-20 leading-[40px] ">
