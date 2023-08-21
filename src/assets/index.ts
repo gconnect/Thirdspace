@@ -45,6 +45,15 @@ import gmailLogo from "./Gmail.svg";
 import bountyButton from "./bounty_button.png"
 import modeIcon from "./mode_icon.svg"
 import menuIcon from "./hamburger.png"
+import partner from "./partners.png"
+import bountyIcon from "./bounties_icon.svg"
+import chatIcon from "./chat_icon.svg"
+import payrollIcon from "./payroll.svg"
+import kanbanIcon from "./kanban.svg"
+import bountyBanner from "./bounty_banner.png"
+import howItWorks from "./how_it_works.png"
+import roadmap from "./roadmap.png"
+
 export {
   gmailLogo,
   viewSub,
@@ -92,5 +101,13 @@ export {
   flow2,
   bountyButton,
   modeIcon,
-  menuIcon
+  menuIcon,
+  partner,
+  bountyIcon,
+  chatIcon,
+  payrollIcon,
+  kanbanIcon,
+  bountyBanner,
+  howItWorks,
+  roadmap
 };

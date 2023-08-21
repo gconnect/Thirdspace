@@ -6,22 +6,22 @@ interface INav {
 export const NavItems: INav[] = [
     {
         title: "Home",
-        link: ""
+        link: "/"
     },
     {
         title: "Partners",
-        link: ""
+        link: "#partners"
     },
     {
         title: "Features",
-        link: ""
+        link: "#features"
     },
     {
         title: "How it Works",
-        link: ""
+        link: "#howitworks"
     },
     {
         title: "Road Map",
-        link: ""
+        link: "#roadmap"
     }
 ]
