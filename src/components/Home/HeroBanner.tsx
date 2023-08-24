@@ -17,19 +17,16 @@ const HeroBanner = () => {
 
         <div className="hidden md:flex flex-col ">
           <h1 className="text-center text-white font-extrabold xl:text-8xl mx-24 lg:text-6xl md:text-5xl font-dmSans items-center justify-center mt-56 Q` leading-[70px] ">
-            Get Paid for your <span className="logoGradient">Git</span>
-            <br /> <p className="logoGradient mt-6">Contributions</p>
+          All-In-One <span className="logoGradient">Workspace </span>
+            <br /> <p className="logoGradient mt-6">for Startups</p>
           </h1>
 
           <div className="text-center text-white font-normal  mt-10 font-dmSans  text-lg">
             <p className="leading-6">
-              Join bounties, and earn rewards for your coding skills and open
-              source contributions.
+            Next Gen all-in-one workspace - Manage remote Teams, kanban boards,  
             </p>
-            <p>
-              Our smart contracts ensure fair payouts and easy payment
-              processing.
-            </p>
+            <p> blockchain-powered Payrolls, outsource tasks 
+            and chat system  with A.I workspace assistant</p>
           </div>
 
           <div className="flex flex-col md:flex-row text-white gap-10 justify-center mt-10">
