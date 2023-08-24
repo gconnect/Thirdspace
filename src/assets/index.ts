@@ -53,6 +53,15 @@ import kanbanIcon from "./kanban.svg"
 import bountyBanner from "./bounty_banner.png"
 import howItWorks from "./how_it_works.png"
 import roadmap from "./roadmap.png"
+import africnnovate from "./partners/africinnovate.png"
+import API13 from "./partners/API13.png"
+import aws from "./partners/aws.png"
+import liverpeer from "./partners/livepeer.png"
+import mediosa from "./partners/mediosa.png"
+import rethinkable from "./partners/rethinkable.png"
+import stakefair from "./partners/stakefair.png"
+import zyde from "./partners/zyde.png"
+import polygon from "./partners/polygon.png"
 
 export {
   gmailLogo,
@@ -109,5 +118,14 @@ export {
   kanbanIcon,
   bountyBanner,
   howItWorks,
-  roadmap
+  roadmap,
+  africnnovate,
+  API13,
+  aws,
+  liverpeer,
+  mediosa,
+  rethinkable,
+  stakefair,
+  zyde,
+  polygon
 };

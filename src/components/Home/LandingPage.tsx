@@ -1,5 +1,5 @@
 import HeroBanner from "./HeroBanner";
-import Partners from "./Partner";
+import Partners from "./Partners";
 import Features from "./Features";
 import BountyBanner from "./BountyBanner";
 import HowItWorks from "./HowItWorks";
