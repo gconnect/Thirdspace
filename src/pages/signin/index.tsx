@@ -10,20 +10,13 @@ const SigInPage = (props: Props) => {
   return (
     <>
       <div className="h-screen">
-        <div className="flex flex-col pt-24">
-          <div className="ml-10 hidden md:flex">
+      <div className="m-10">
             <Link href="/">
               <Image src={logo} alt="logo" width={180} />
             </Link>
           </div>
-
-          <div className="ml-6 flex md:hidden">
-            <Link href="/">
-              <Image src={logo} alt="logo" width={140} />
-            </Link>
-          </div>
-
-          <div className=" mx-6 mt-24 md:-mt-4  md:mx-auto w-[450px] md:w-[500px] h-[450px]  md:h-[520px] bg-[#0F0F0F] flex flex-col justify-center  text-white shadow-inner ">
+        <div className="flex flex-col pt-8">
+          <div className=" mx-auto md:-mt-4  md:mx-auto xs:w-[350px] sm:w-[400px]  md:w-[500px] h-[450px]  md:h-[520px] bg-[#0F0F0F] flex flex-col justify-center  text-white shadow-inner ">
             <div className=" p-2 rounded ">
               <div className="flex flex-col mt-2 mx-[48px]">
                 <h2 className="text-white font-bold md:text-2xl text-center font-dmSans">
