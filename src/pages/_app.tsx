@@ -4,7 +4,6 @@ import type { NextPage } from "next";
 import type { AppType, AppProps } from "next/app";
 import type { ReactElement, ReactNode } from "react";
 import { SessionProvider } from "next-auth/react";
-import Layout from "@/components/Layout/Layout";
 import { useRouter } from "next/router";
 
 import BounterHunter from "@/components/Layout/BounterHunter";
