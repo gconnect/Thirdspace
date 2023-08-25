@@ -90,7 +90,7 @@ const MyApp = ({ Component, pageProps }: AppPropsWithLayout) => {
     <BountyPlatformContextProvider>
       <WagmiConfig config={wagmiConfig}>
         <RainbowKitProvider chains={chains} theme={darkTheme()}>
-            <Component {...pageProps} />
+            <Component  {...pageProps} />
         </RainbowKitProvider>
       </WagmiConfig>
     </BountyPlatformContextProvider>
