@@ -5,7 +5,7 @@ import Stepper from "./Stepper";
 
 const Roadmap = () => {
     return ( 
-        <div className="  bg-neutral-800">
+        <div className="  bg-neutral-800 py-36">
             <div className="text-white text-center">
                 <h3 className="text-3xl py-8">Roadmap</h3>
                 <p className="md:px-16 px-8">Our roadmap takes us through a series of exciting phases, each designed to bring us closer to our vision.</p>
