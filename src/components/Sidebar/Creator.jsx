@@ -25,11 +25,11 @@ const iconItems = [
     link: "/creator",
     icon: "fas fa-medal",
   },
-  {
-    text: "Members",
-    link: "/creator/members",
-    icon: "fa-solid fa-people-group",
-  },
+  // {
+  //   text: "Members",
+  //   link: "/creator/members",
+  //   icon: "fa-solid fa-people-group",
+  // },
   {
     text: "Settings",
     link: "/creator/settings",

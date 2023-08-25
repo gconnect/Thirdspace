@@ -4,7 +4,6 @@ import type { NextPage } from "next";
 import type { AppType, AppProps } from "next/app";
 import type { ReactElement, ReactNode } from "react";
 import { SessionProvider } from "next-auth/react";
-
 import { useRouter } from "next/router";
 
 import BounterHunter from "@/components/Layout/BounterHunter";
@@ -30,7 +29,7 @@ const { chains, publicClient } = configureChains(
 );
 const { connectors } = getDefaultWallets({
   appName: "My RainbowKit App",
-  projectId: "YOUR_PROJECT_ID",
+  projectId: process.env.NEXT_PUBLIC_WALLET_CONNECT_APP_ID as string,
   chains,
 });
 const wagmiConfig = createConfig({
@@ -91,7 +90,7 @@ const MyApp = ({ Component, pageProps }: AppPropsWithLayout) => {
     <BountyPlatformContextProvider>
       <WagmiConfig config={wagmiConfig}>
         <RainbowKitProvider chains={chains} theme={darkTheme()}>
-          (<Component {...pageProps} />)
+            <Component {...pageProps} />
         </RainbowKitProvider>
       </WagmiConfig>
     </BountyPlatformContextProvider>
