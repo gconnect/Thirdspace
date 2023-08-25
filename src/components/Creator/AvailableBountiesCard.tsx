@@ -57,7 +57,7 @@ const AvailableBountiesCard = (props: Props) => {
     };
 
     Fetch();
-  }, []);
+  }, [availableBounties]);
 
   return (
     <div className="bg-[#0A0A0A]">
