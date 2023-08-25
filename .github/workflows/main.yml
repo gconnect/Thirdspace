@@ -21,17 +21,19 @@ jobs:
 
       - name: Install Dependencies
         run: npm install
-      - uses: actions/cache@v2 # This action caches the node_modules folder across builds, and makes the Runner use the cache as long as package-lock.json doesn’t change.
+        
+      - name: Nextjs Cache
+        uses: actions/cache@v2 # This action caches the node_modules folder across builds, and makes the Runner use the cache as long as package-lock.json doesn’t change.
         with:
-      # Next.js stores its cache in the .next/cache directory. This will persist the cache across builds for faster application rebuilds. E.g., if I only updated my codebase but not the dependencies, this avoids re-bundling the dependencies.
-        name: |
-         ${{ github.workspace }}/node_modules
-         ${{ github.workspace }}/.next/cache
-       # Generate a new cache whenever packages or source files change.
-        id: ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-${{ hashFiles('**/*.js') }}
-       # If source files changed but packages didn't, rebuild from a prior cache. 
-        shell: |
-         ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-
+        # Next.js stores its cache in the .next/cache directory. This will persist the cache across builds for faster application rebuilds. E.g., if I only updated my codebase but not the dependencies, this avoids re-bundling the dependencies.
+          path: |
+           ${{ github.workspace }}/node_modules
+           ${{ github.workspace }}/.next/cache
+         # Generate a new cache whenever packages or source files change.
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-${{ hashFiles('**/*.js') }}
+         # If source files changed but packages didn't, rebuild from a prior cache. 
+          restore-keys: |
+           ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-
          
       - name: Load .env file
         uses: natterstefan/action-next-env@v1
@@ -41,9 +43,10 @@ jobs:
 
       - name: Some other action
         run: |
-          echo "HELLO Variable: ${{ env.HELLO }}"
-            - name: Build Website
-              run: npm run build
+          echo "Variable: ${{ env.NEXT_PUBLIC_WALLET_CONNECT_APP_ID }}"
+          
+      - name: Build Website
+        run: npm run build
 
       - name: Install SSH Key
         uses: shimataro/ssh-key-action@v2
