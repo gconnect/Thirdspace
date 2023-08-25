@@ -21,11 +21,11 @@ const HeroBanner = () => {
             <br /> <p className="logoGradient mt-6">for Startups</p>
           </h1>
 
-          <div className="text-center text-white font-normal  mt-10 font-dmSans  text-lg">
-            <p className="leading-6">
+          <div className="text-center text-white font-normal  mt-10 font-dmSans  text-lg lg:mx-8 xl:mx-8 md:mx-6" >
+            <p className="">
             Next Gen all-in-one workspace - Manage remote Teams, kanban boards,  
             </p>
-            <p> blockchain-powered Payrolls, outsource tasks 
+            <p className=""> blockchain-powered Payrolls, outsource tasks 
             and chat system  with A.I workspace assistant</p>
           </div>
 
