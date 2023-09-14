@@ -25,7 +25,9 @@
     "src/constants/index.js",
     "src/constants/index.js",
     "src/context/BountyPlatformContext.jsx",
-    "src/components/Home/userAuth.jsx"
+    "src/components/Home/userAuth.jsx",
+    "src/components/Sidebar/kanban/desktop.jsx",
+    "src/pages/kanban/sample"
   ],
   "exclude": ["node_modules"]
 }

@@ -8,11 +8,12 @@ body {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  background-image: url("../assets/backgorundImage.png") !important;
+  background-color: black !important ;
+  background-image: url("../assets/backgorundImage-optimized.png") !important;
   background-size: cover !important;
   background-repeat: no-repeat !important;
   background-attachment: fixed !important;
-  overflow-x: hidden; 
+  overflow-x: hidden;
 }
 
 input {
@@ -368,5 +369,30 @@ input {
 
   .signUpInput {
     @apply border border-[#1F1F1F] text-white placeholder:text-[#999999] outline-none h-[40px]  pl-2 bg-transparent w-full font-normal text-sm;
+  }
+}
+
+@layer utilities {
+  .tap-transparent {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+
+  .buttonLinearBackground {
+    background: linear-gradient(89.56deg, #fc8c02 -42.7%, #5618ff 117.16%),
+      linear-gradient(0deg, #1f1f1f, #1f1f1f);
+  }
+
+  .buttonLinearColor {
+    color: linear-gradient(89.56deg, #fc8c02 -42.7%, #5618ff 117.16%),
+      linear-gradient(0deg, #1f1f1f, #1f1f1f);
   }
 }

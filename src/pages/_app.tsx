@@ -17,21 +17,25 @@ import {
   RainbowKitProvider,
   darkTheme,
 } from "@rainbow-me/rainbowkit";
+
 import { configureChains, createConfig, WagmiConfig } from "wagmi";
 import { mainnet, polygon, optimism, arbitrum } from "wagmi/chains";
 import { alchemyProvider } from "wagmi/providers/alchemy";
 import { publicProvider } from "wagmi/providers/public";
 import BountyPlatformContextProvider from "@/context/BountyPlatformContext";
 import Head from "next/head";
+
 const { chains, publicClient } = configureChains(
   [mainnet, polygon, optimism, arbitrum],
   [alchemyProvider({ apiKey: "0" }), publicProvider()]
 );
+
 const { connectors } = getDefaultWallets({
   appName: "My RainbowKit App",
   projectId: process.env.NEXT_PUBLIC_WALLET_CONNECT_APP_ID as string,
   chains,
 });
+
 const wagmiConfig = createConfig({
   autoConnect: true,
   connectors,
@@ -90,7 +94,7 @@ const MyApp = ({ Component, pageProps }: AppPropsWithLayout) => {
     <BountyPlatformContextProvider>
       <WagmiConfig config={wagmiConfig}>
         <RainbowKitProvider chains={chains} theme={darkTheme()}>
-            <Component  {...pageProps} />
+          <Component {...pageProps} />
         </RainbowKitProvider>
       </WagmiConfig>
     </BountyPlatformContextProvider>
