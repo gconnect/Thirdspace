@@ -19,7 +19,7 @@ const Teams = (props: Props) => {
               width={50}
               className="rounded-full"
             />
-          </Link>
+      </Link>
        
       </div>
       <TeamsNavbar/>
