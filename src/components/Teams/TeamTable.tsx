@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Image from "next/image";
 import React from 'react';
 import { BiCaretDown, BiFilterAlt } from "react-icons/bi";
+import { ImCancelCircle } from "react-icons/im";
 
 type Props = {};
 
@@ -64,10 +65,11 @@ const TeamTable = (props: Props) => {
             </th>
           </tr>
         </thead>
+
         <tbody className=" divide-y divide-gray-200">
           {/* Sample row */}
           <tr>
-            <td className="px-6 py-4 whitespace-nowrap">
+            <td className="px-6 py-4 whitespace-nowrap w-xs-40  ">
               <div className="flex items-center">
                 <div className="flex-shrink-0 h-10 w-10">
                 <Link href="/">
@@ -89,34 +91,185 @@ const TeamTable = (props: Props) => {
                 </div>
               </div>
             </td>
+            <td className="px-6 py-4 whitespace-nowrap w-sm-40 mx-5">
+              {/* Department dropdown */}
+              <div className='flex relative'>
+                <select className="block bg-gray-800 appearance-none border rounded-full border-solid border-outline-gray-900 text-gray-200 py-2 px-4 pr-8 leading-tight">
+                  <option>Management</option>
+                  <option>HR</option> {/* Add more department options */}
+                </select>
+                <BiCaretDown className=" w-6 h-6 ml-1 top-2 " style={{position: 'absolute', left: '7.75rem'}} />
+              </div>
+
+            </td>
+            <td className="px-6 py-4 whitespace-nowrap w-sm-40 mx-5">
+              {/* Department dropdown */}
+              <div className='flex relative'>
+                <select className="block bg-black appearance-none text-gray-200 py-2 px-4 pr-8 leading-tight">
+                  <option>Owner</option>
+                  <option>HR</option> {/* Add more department options */}
+                </select>
+                <BiCaretDown className=" w-6 h-6 ml-1 top-2 " style={{position: 'absolute', left: '4.75rem'}} />
+              </div>
+
+            </td>
             <td className="px-6 py-4 whitespace-nowrap">
-      {/* Department dropdown */}
-      <div className="relative">
-        <select className="block bg-black appearance-none border border-solid border-outline-gray-900 text-gray-200 py-2 px-4 pr-8 leading-tight">
-          <option>Management</option>
-          <option>HR</option> {/* Add more department options */}
-        </select>
-        <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-          <BiCaretDown className="w-6 h-6 ml-1" />
-        </div>
-      </div>
-    </td>
-    <td className="px-6 py-4 whitespace-nowrap">
-      {/* Roles dropdown */}
-      <div className="relative">
-        <select className="block bg-black appearance-none border border-solid border-outline-gray-900 text-gray-200 py-2 px-4 pr-8 leading-tight">
-          <option>Management</option>
-          <option>Employee</option> {/* Add more role options */}
-        </select>
-        <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-          <BiCaretDown className="w-6 h-6 ml-1" />
-        </div>
-      </div>
-    </td>
-    <td className="px-6 py-4 whitespace-nowrap">
-      {/* Add remove button or action here */}
-      <button className="text-red-500">Remove</button>
-    </td>
+              {/* Add remove button or action here */}
+              <button className="text-red-500"><ImCancelCircle className="w-6 h-6 ml-1" /></button>
+            </td>
+          </tr>
+
+          <tr>
+            <td className="px-6 py-4 whitespace-nowrap w-xs-40  ">
+              <div className="flex items-center">
+                <div className="flex-shrink-0 h-10 w-10">
+                <Link href="/">
+                      <Image
+                        src={profileImage}
+                        alt="profileImage"
+                        width={50}
+                        className="rounded-full"
+                      />
+                </Link>
+                </div>
+                <div className="ml-4">
+                  <div className="text-lg font-medium text-gray-200">
+                    John Doe
+                  </div>
+                  <div className="text-sm text-gray-500">
+                    @johndoe
+                  </div>
+                </div>
+              </div>
+            </td>
+            <td className="px-6 py-4 whitespace-nowrap w-sm-40 mx-5">
+              {/* Department dropdown */}
+              <div className='flex relative'>
+                <select className="block bg-gray-800 appearance-none border rounded-full border-solid border-outline-gray-900 text-gray-200 py-2 px-4 pr-8 leading-tight">
+                  <option>Management</option>
+                  <option>HR</option> {/* Add more department options */}
+                </select>
+                <BiCaretDown className=" w-6 h-6 ml-1 top-2 " style={{position: 'absolute', left: '7.75rem'}} />
+              </div>
+
+            </td>
+            <td className="px-6 py-4 whitespace-nowrap w-sm-40 mx-5">
+              {/* Department dropdown */}
+              <div className='flex relative'>
+                <select className="block bg-black appearance-none text-gray-200 py-2 px-4 pr-8 leading-tight">
+                  <option>Owner</option>
+                  <option>HR</option> {/* Add more department options */}
+                </select>
+                <BiCaretDown className=" w-6 h-6 ml-1 top-2 " style={{position: 'absolute', left: '4.75rem'}} />
+              </div>
+
+            </td>
+            <td className="px-6 py-4 whitespace-nowrap">
+              {/* Add remove button or action here */}
+              <button className="text-red-500"><ImCancelCircle className="w-6 h-6 ml-1" /></button>
+            </td>
+          </tr>
+
+          <tr>
+            <td className="px-6 py-4 whitespace-nowrap w-xs-40  ">
+              <div className="flex items-center">
+                <div className="flex-shrink-0 h-10 w-10">
+                <Link href="/">
+                      <Image
+                        src={profileImage}
+                        alt="profileImage"
+                        width={50}
+                        className="rounded-full"
+                      />
+                </Link>
+                </div>
+                <div className="ml-4">
+                  <div className="text-lg font-medium text-gray-200">
+                    John Doe
+                  </div>
+                  <div className="text-sm text-gray-500">
+                    @johndoe
+                  </div>
+                </div>
+              </div>
+            </td>
+            <td className="px-6 py-4 whitespace-nowrap w-sm-40 mx-5">
+              {/* Department dropdown */}
+              <div className='flex relative'>
+                <select className="block bg-gray-800 appearance-none border rounded-full border-solid border-outline-gray-900 text-gray-200 py-2 px-4 pr-8 leading-tight">
+                  <option>Management</option>
+                  <option>HR</option> {/* Add more department options */}
+                </select>
+                <BiCaretDown className=" w-6 h-6 ml-1 top-2 " style={{position: 'absolute', left: '7.75rem'}} />
+              </div>
+
+            </td>
+            <td className="px-6 py-4 whitespace-nowrap w-sm-40 mx-5">
+              {/* Department dropdown */}
+              <div className='flex relative'>
+                <select className="block bg-black appearance-none text-gray-200 py-2 px-4 pr-8 leading-tight">
+                  <option>Owner</option>
+                  <option>HR</option> {/* Add more department options */}
+                </select>
+                <BiCaretDown className=" w-6 h-6 ml-1 top-2 " style={{position: 'absolute', left: '4.75rem'}} />
+              </div>
+
+            </td>
+            <td className="px-6 py-4 whitespace-nowrap">
+              {/* Add remove button or action here */}
+              <button className="text-red-500"><ImCancelCircle className="w-6 h-6 ml-1" /></button>
+            </td>
+          </tr>
+
+          <tr>
+            <td className="px-6 py-4 whitespace-nowrap w-xs-40  ">
+              <div className="flex items-center">
+                <div className="flex-shrink-0 h-10 w-10">
+                <Link href="/">
+                      <Image
+                        src={profileImage}
+                        alt="profileImage"
+                        width={50}
+                        className="rounded-full"
+                      />
+                </Link>
+                </div>
+                <div className="ml-4">
+                  <div className="text-lg font-medium text-gray-200">
+                    John Doe
+                  </div>
+                  <div className="text-sm text-gray-500">
+                    @johndoe
+                  </div>
+                </div>
+              </div>
+            </td>
+            <td className="px-6 py-4 whitespace-nowrap w-sm-40 mx-5">
+              {/* Department dropdown */}
+              <div className='flex relative'>
+                <select className="block bg-gray-800 appearance-none border rounded-full border-solid border-outline-gray-900 text-gray-200 py-2 px-4 pr-8 leading-tight">
+                  <option>Management</option>
+                  <option>HR</option> {/* Add more department options */}
+                </select>
+                <BiCaretDown className=" w-6 h-6 ml-1 top-2 " style={{position: 'absolute', left: '7.75rem'}} />
+              </div>
+
+            </td>
+            <td className="px-6 py-4 whitespace-nowrap w-sm-40 mx-5">
+              {/* Department dropdown */}
+              <div className='flex relative'>
+                <select className="block bg-black appearance-none text-gray-200 py-2 px-4 pr-8 leading-tight">
+                  <option>Owner</option>
+                  <option>HR</option> {/* Add more department options */}
+                </select>
+                <BiCaretDown className=" w-6 h-6 ml-1 top-2 " style={{position: 'absolute', left: '4.75rem'}} />
+              </div>
+
+            </td>
+            <td className="px-6 py-4 whitespace-nowrap">
+              {/* Add remove button or action here */}
+              <button className="text-red-500"><ImCancelCircle className="w-6 h-6 ml-1" /></button>
+            </td>
           </tr>
 
           {/* You can add more rows with user information here */}
@@ -127,3 +280,5 @@ const TeamTable = (props: Props) => {
 };
 
 export default TeamTable;
+
+/*  */
