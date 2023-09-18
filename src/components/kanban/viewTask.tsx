@@ -1,49 +1,11 @@
-import { CloseBtn, CreateBtn } from "@/components/kanban/shared";
+import {
+  CloseBtn,
+  TextArea,
+  InputField,
+  StatusDropdownIcon,
+  ArrowRightDiagonalBtn,
+} from "@/components/shared";
 import React, { useState } from "react";
-
-const StatusDropdownIcon = () => {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="10"
-      height="5"
-      viewBox="0 0 10 5"
-      fill="none"
-    >
-      <path d="M0 0L5 5L10 0H0Z" fill="#999999" />
-    </svg>
-  );
-};
-
-export const InputField = (props: {
-  tag?: string;
-  type: string;
-  placeholder: any;
-}) => {
-  return (
-    <div className="text-[14px] font-normal bg-[#3F3F3F] text-white">
-      <p className="pb-[10px] bg-[#0F0F0F] text-[#999]">{props.tag}</p>
-      <input
-        type={props.type}
-        className="h-auto py-[9px] px-4 border-[1px] border-zinc-400 focus:outline-none focus:[#873ab3] focus:[#873ab3] focus:ring-1"
-        placeholder={props.placeholder}
-      />
-    </div>
-  );
-};
-
-export const TextArea = (props: { tag?: string; placeholder: string }) => {
-  return (
-    <div className="w-full text-[14px] font-normal bg-[#3F3F3F] text-white   ">
-      <p className="pb-[10px] bg-[#0F0F0F] text-[#999]">{props.tag}</p>
-
-      <textarea
-        placeholder={props.placeholder}
-        className="w-full text-[14px] font-normal bg-[#3F3F3F] text-white p-4  border-[1px] border-zinc-400 focus:outline-none focus:[#873ab3] focus:[#873ab3] focus:ring-1"
-      />
-    </div>
-  );
-};
 
 export const TaskStatus = (props: { tag?: string }) => {
   return (
@@ -113,9 +75,9 @@ const ViewTask = (props: { onclick: any }) => {
             onClick={toggleEditTask}
             className="w-full px-3 sm:px-8 md:px-24 flex items-center justify-center pb-[80px] "
           >
-            <button className="buttonLinearBackground w-full flex items-center justify-center py-3 gap-5 sm:gap-4 text-[16px] font-medium rounded-lg">
+            <button className="buttonLinearBackground w-full flex items-center justify-center py-3 gap-5 sm:gap-4 text-[16px] font-bold rounded-lg">
               <p>Edit</p>
-              <CreateBtn />
+              <ArrowRightDiagonalBtn />
             </button>
           </div>
         ) : (
@@ -123,9 +85,9 @@ const ViewTask = (props: { onclick: any }) => {
             onClick={toggleEditTask}
             className="w-full px-3 sm:px-8 md:px-24 flex items-center justify-center pb-[80px] "
           >
-            <button className="buttonLinearBackground w-full flex items-center justify-center py-3 gap-5 sm:gap-4 text-[16px] font-medium rounded-lg">
+            <button className="buttonLinearBackground w-full flex items-center justify-center py-3 gap-5 sm:gap-4 text-[16px] font-bold rounded-lg">
               <p>Done</p>
-              <CreateBtn />
+              <ArrowRightDiagonalBtn />
             </button>
           </div>
         )}

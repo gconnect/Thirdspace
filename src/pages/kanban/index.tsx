@@ -1,9 +1,9 @@
 import React from "react";
 import {
   FilterIcon,
-  KanbanSearch,
+  DashboardSearch,
   ArrowdownIcon,
-} from "@/components/kanban/shared";
+} from "@/components/shared";
 import TaskPanel from "@/components/kanban/task-panel";
 import KanbanDashboard from "@/components/kanban/dashboard";
 import KanbanSidebar from "../../components/Sidebar/kanban/desktop";
@@ -19,7 +19,7 @@ const KanbanComponent = () => {
 
       <section className="py-5">
         <div className="flex xl:hidden">
-          <KanbanSearch width="w-full" />
+          <DashboardSearch width="w-full" />
         </div>
       </section>
 

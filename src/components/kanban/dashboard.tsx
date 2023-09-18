@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { BiPlus } from "react-icons/bi";
 import AddTask from "./addtask";
-import { KanbanSearch } from "./shared";
+import { DashboardSearch } from "../shared";
 import Image from "next/image";
 
 const KanbanDashboard = () => {
@@ -26,7 +26,7 @@ const KanbanDashboard = () => {
       </div>
       <div className="flex gap-7 items-center ">
         <div className="hidden xl:flex">
-          <KanbanSearch width={"min-w-[400px]"} />
+          <DashboardSearch width={"min-w-[400px]"} />
         </div>
 
         <div>

@@ -1,5 +1,5 @@
 import React from "react";
-import { ThreeDotIcon, PlusIcon, TaskCard } from "./shared";
+import { ThreeDotIcon, PlusIcon, TaskCard } from "../shared";
 import Image from "next/image";
 import { Img } from "@chakra-ui/react";
 
@@ -49,18 +49,18 @@ const TaskPanel = () => {
       </section>
 
       <section className="w-full min-w-[1000px] max-w-[1100px] pt-10 pb-5 grid grid-cols-3 items-start h-auto">
-        <div className="flex flex-col gap-7 justify-center pr-5 py-8 ">
+        <div className="flex flex-col gap-7 justify-center pr-5 py-0 xl:py-0 2xl:py-0 ">
           <TaskCard borderColor="border-gray" />
         </div>
 
-        <div className="flex">
+        <div className="relative flex">
           <div>
             <Img
               alt="line"
               // width={1}
               // height={100}
               src="/images/line.svg"
-              className="relative right-0 2xl:right-3 h-screen py-16 "
+              className="absolute -right-[2px] 2xl:-right-[6px] h-screen"
             />
           </div>
 
@@ -76,12 +76,12 @@ const TaskPanel = () => {
               // width={1}
               // height={100}
               src="/images/line.svg"
-              className="relative left-0 2xl:left-2 h-screen py-16"
+              className="absolute -left-[1px] 2xl:-left-[14px] h-screen"
             />
           </div>
         </div>
 
-        <div className=" flex flex-col gap-7 items-center justify-center pl-5 py-8">
+        <div className="flex flex-col gap-7 items-center justify-center pl-5 py-0 xl:py-0 2xl:py-0">
           <TaskCard borderColor={"border-[#13F129]"} />
           <TaskCard borderColor={"border-[#13F129]"} />
         </div>

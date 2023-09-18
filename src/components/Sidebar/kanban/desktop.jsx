@@ -20,27 +20,27 @@ import { logo } from "@/assets";
 import Image from "next/image";
 
 export const kanbanItems = [
-  { id: "chat", text: "Chat", link: "/kanban/chat", icon: "fas fa-medal" },
+  { id: "chat", text: "Chat", link: "/chat", icon: "fas fa-medal" },
   {
     id: "payroll",
     text: "Payroll",
-    link: "/kanban/payroll",
+    link: "/payroll",
     icon: "fas fa-medal",
   },
   {
     id: "outsource",
     text: "Outsource",
-    link: "/kanban/outsource",
+    link: "/outsource",
     icon: "fas fa-medal",
   },
 ];
 
 export const iconItems = [
-  { id: "teams", text: "Teams", link: "/kanban/teams", icon: "fas fa-medal" },
+  { id: "teams", text: "Teams", link: "/teams", icon: "fas fa-medal" },
   {
     id: "settings",
     text: "Settings",
-    link: "/kanban/settings",
+    link: "/settings",
     icon: "fas fa-gear",
   },
 ];
@@ -66,7 +66,10 @@ const KanbanSidebarDesktop = ({ children }) => {
         </Link>
 
         <div className="h-full flex flex-col justify-center items-start mx-4">
-          <div className="py-3 px-4 text-center text-xl text-gray-500 inline-flex items-center border-b-[1px] border-zinc-500 w-full hover:text-white hover:bg-zinc-900">
+          <Link
+            href="/kanban"
+            className="py-3 px-4 text-center text-xl text-gray-500 inline-flex items-center border-b-[1px] border-zinc-500 w-full hover:text-white hover:bg-zinc-900"
+          >
             <Image
               width={20}
               height={20}
@@ -76,7 +79,7 @@ const KanbanSidebarDesktop = ({ children }) => {
             />
             <p className="">Kanban Board</p>
             <DisplayAction />
-          </div>
+          </Link>
 
           {kanbanItems.map((list) => (
             <div

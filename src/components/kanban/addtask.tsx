@@ -1,7 +1,12 @@
-import { ArrowdownIcon, CloseBtn, CreateBtn } from "@/components/kanban/shared";
-import { Input } from "@chakra-ui/react";
+import {
+  CloseBtn,
+  TextArea,
+  InputField,
+  ArrowdownIcon,
+  ArrowRightDiagonalBtn,
+} from "@/components/shared";
 import React from "react";
-import { InputField, TaskStatus, TextArea } from "./viewTask";
+import { TaskStatus } from "./viewTask";
 
 const AddTask = (props: { onclick: any }) => {
   return (
@@ -31,9 +36,9 @@ const AddTask = (props: { onclick: any }) => {
         </form>
 
         <div className="w-full px-3 sm:px-8 md:px-24 flex items-center justify-center pb-20 ">
-          <button className="buttonLinearBackground w-full flex items-center justify-center py-3 gap-5 sm:gap-4 text-[16px] font-medium rounded-lg">
+          <button className="buttonLinearBackground w-full flex items-center justify-center py-3 gap-5 sm:gap-4 text-[16px] font-bold rounded-lg">
             <p>Create</p>
-            <CreateBtn />
+            <ArrowRightDiagonalBtn />
           </button>
         </div>
       </div>

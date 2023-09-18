@@ -1,9 +1,9 @@
-import { Hamburger, VerticalThreeDotsIcon } from "@/components/kanban/shared";
-import { Avatar } from "@chakra-ui/react";
 import Link from "next/link";
-import React, { useState } from "react";
-import { kanbanItems, iconItems } from "./desktop";
 import Image from "next/image";
+import React, { useState } from "react";
+import { Avatar } from "@chakra-ui/react";
+import { kanbanItems, iconItems } from "./desktop";
+import { Hamburger, VerticalThreeDotsIcon } from "@/components/shared";
 
 export const BackButton = () => {
   return (
@@ -66,8 +66,11 @@ const KanbanSidebarMobile = () => {
             </Link>
 
             <div className="h-full flex flex-col justify-center items-start mx-4">
-              <div className="py-3 px-4 text-center text-xl text-gray-500 inline-flex items-center justify-between border-b-[1px] border-zinc-500 w-full hover:text-white hover:bg-zinc-900">
-                <>
+              <Link
+                href="/kanban"
+                className="py-3 px-4 text-center text-xl text-gray-500 inline-flex items-center justify-between border-b-[1px] border-zinc-500 w-full hover:text-white hover:bg-zinc-900"
+              >
+                <div className="flex items-center">
                   <Image
                     width={20}
                     height={20}
@@ -76,10 +79,10 @@ const KanbanSidebarMobile = () => {
                     className="w-[20px] h-[20px] mr-3"
                   />
                   <p className="">Kanban Board</p>
-                </>
+                </div>
                 <VerticalThreeDotsIcon />
                 {/* <DisplayAction /> */}
-              </div>
+              </Link>
 
               {kanbanItems.map((list, key) => (
                 <div
