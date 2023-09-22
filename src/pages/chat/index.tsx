@@ -1,18 +1,26 @@
 import React from "react";
-import { DashboardSearch, SearchSVG } from "@/components/shared";
+import {
+  AttachSVG,
+  DashboardSearch,
+  EmojiSVG,
+  ReceiveChatText,
+  SearchSVG,
+  SendChatText,
+} from "@/components/shared";
 import ChatDashboard from "@/components/chat/dashboard";
 import KanbanSidebarMobile from "@/components/Sidebar/kanban/mobile";
 import KanbanSidebarDesktop from "@/components/Sidebar/kanban/desktop";
 import Image from "next/image";
 import { BiPlus } from "react-icons/bi";
 import { BsThreeDotsVertical } from "react-icons/bs";
+import DisplayChats from "@/components/chat/display-chats";
 
 const ChatComponent = () => {
   return (
     // pt-6 lg:pt-12 px-4 sm:px-7
 
     <main className="w-full h-screen ">
-      <section className="h-[16%] sm:h-[18%] md:h-[21%] xl:h-[15%] border-b-[1px] border-red-500  bg-black pt-6 lg:pt-12 px-4 sm:px-8 md:px-12">
+      <section className="h-[16%] sm:h-[18%] md:h-[21%] xl:h-[15%] border-b-[1px] border-zinc-300  bg-black pt-6 lg:pt-12 px-4 sm:px-8 md:px-12">
         <section className="flex items-center gap-5 sm:gap-10">
           <KanbanSidebarMobile />
           <ChatDashboard />
@@ -29,7 +37,7 @@ const ChatComponent = () => {
       <section className="relative mt-4 flex h-[82%] sm:h-[80%] md:h-[77%] xl:h-[83%] w-[100%]">
         <div className="bg-[#242424] rounded-md py-3 px-1 sm:px-2 w-[100%] xl:w-[30%] h-full overflow-y-auto no-scrollbar">
           {/* <div className="bg-[#242424] rounded-md py-5 px-1 sm:px-2 min-w-[300px] sm:w-screen md:w-[300px] lg:w-screen xl:w-[330px] h-full overflow-y-auto no-scrollbar"> */}
-          <div className="flex items-center justify-between px-2 pt-3 pb-10 border-b-[1px] border-zinc-50   ">
+          <div className="flex items-center justify-between px-2 pt-2 pb-5 border-b-[1px] border-zinc-50">
             <div
               className={`w-[160px] flex items-center rounded-full h-[45px] px-6 py-2 gap-2 text-[#999999] bg-zinc-900`}
             >
@@ -167,24 +175,7 @@ const ChatComponent = () => {
         </div>
 
         {/* chat display */}
-        <div className="hidden xl:flex xl:w-[60%] overflow-y-auto no-scrollbar  ">
-          <div className="w-[70%] px-2 absolute top-0 flex justify-between">
-            <div className="flex gap-3 items-center">
-              <Image
-                src="/images/user-avatar.png"
-                alt={"avatar"}
-                width={48}
-                height={48}
-              />
-              <p>Victor</p>
-            </div>
-            <div className="flex gap-3 items-center">
-              <SearchSVG />
-              <BsThreeDotsVertical height={24} width={24} />
-            </div>
-          </div>
-          <div className="absolute bottom-0 ">Input panel</div>
-        </div>
+        <DisplayChats />
       </section>
     </main>
   );
