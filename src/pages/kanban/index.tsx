@@ -48,7 +48,9 @@ const Index = () => {
   return (
     <div>
       <KanbanSidebar>
-        <KanbanComponent />
+        <div className="pt-6 lg:pt-12 px-4 sm:px-7">
+          <KanbanComponent />
+        </div>
       </KanbanSidebar>
     </div>
   );

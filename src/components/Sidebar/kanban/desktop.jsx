@@ -123,8 +123,7 @@ const KanbanSidebarDesktop = ({ children }) => {
           <Image src={logo} alt="logo" width={180} />
         </div>
       </div>
-
-      <main className="overflow-y-auto left-[300px] pt-6 lg:pt-12 px-4 sm:px-7 bg-black flex-1 w-full lg:w-[70%] h-full lg:min-h-screen !font-nexa text-white">
+      <main className="overflow-y-auto left-[300px] bg-black flex-1 w-full lg:w-[70%] h-[100%] !font-nexa text-white">
         {children}
       </main>
     </div>
