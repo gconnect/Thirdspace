@@ -20,28 +20,33 @@ import { logo } from "@/assets";
 import Image from "next/image";
 
 export const kanbanItems = [
-  { id: "chat", text: "Chat", link: "/chat", icon: "fas fa-medal" },
+  { id: "chat", text: "Chat", link: "/chat", icon: "/images/chat-logo.png" },
   {
     id: "payroll",
     text: "Payroll",
     link: "/payroll",
-    icon: "fas fa-medal",
+    icon: "/images/payroll-logo.png",
   },
   {
     id: "outsource",
     text: "Outsource",
     link: "/outsource",
-    icon: "fas fa-medal",
+    icon: "/images/outsource-logo.png",
   },
 ];
 
 export const iconItems = [
-  { id: "teams", text: "Teams", link: "/teams", icon: "fas fa-medal" },
+  {
+    id: "teams",
+    text: "Teams",
+    link: "/teams",
+    icon: "/images/teams-logo.png",
+  },
   {
     id: "settings",
     text: "Settings",
     link: "/settings",
-    icon: "fas fa-gear",
+    icon: "/images/settings-logo.png",
   },
 ];
 
@@ -91,7 +96,13 @@ const KanbanSidebarDesktop = ({ children }) => {
                   href={list.link}
                   className="px-4 flex items-center text-gray-500 hover:text-white hover:bg-zinc-900 font-nexa"
                 >
-                  <i className={`${list.icon} text-xl w-5`}></i>
+                  <Image
+                    width={24}
+                    height={24}
+                    alt="kanban"
+                    src={list.icon}
+                    className="w-[24px] h-[24px] -mr-[3px]"
+                  />{" "}
                   <p className="text-center text-xl cursor-pointer my-1 p-3 rounded-lg inline-block">
                     {list.text}
                   </p>
@@ -109,7 +120,13 @@ const KanbanSidebarDesktop = ({ children }) => {
                   href={list.link}
                   className="px-4 flex items-center text-gray-500 hover:text-white hover:bg-zinc-900 font-nexa"
                 >
-                  <i className={`${list.icon} text-xl w-5`}></i>
+                  <Image
+                    width={24}
+                    height={24}
+                    alt="kanban"
+                    src={list.icon}
+                    className="w-[24px] h-[24px] -mr-[3px]"
+                  />{" "}
                   <p className="text-center text-xl  cursor-pointer my-1 p-3 rounded-lg inline-block">
                     {list.text}
                   </p>

@@ -94,7 +94,13 @@ const KanbanSidebarMobile = () => {
                       href={list.link}
                       className="px-4 flex items-center text-gray-500 hover:text-white hover:bg-zinc-900 font-nexa"
                     >
-                      <i className={`${list.icon} text-xl w-5`}></i>
+                      <Image
+                        width={24}
+                        height={24}
+                        alt="kanban"
+                        src={list.icon}
+                        className="w-[24px] h-[24px] -mr-[3px]"
+                      />
                       <p className="text-center text-xl cursor-pointer my-1 p-3 rounded-lg inline-block">
                         {list.text}
                       </p>
@@ -107,12 +113,18 @@ const KanbanSidebarMobile = () => {
             <div className="h-full flex flex-col justify-center items-start mx-4">
               <div className="border-b-[1px] border-zinc-500 w-full">
                 {iconItems.map((list, key) => (
-                  <ul key={key}>
+                  <ul key={list.id}>
                     <Link
                       href={list.link}
                       className="px-4 flex items-center text-gray-500 hover:text-white hover:bg-zinc-900 font-nexa"
                     >
-                      <i className={`${list.icon} text-xl w-5`}></i>
+                      <Image
+                        width={24}
+                        height={24}
+                        alt="kanban"
+                        src={list.icon}
+                        className="w-[24px] h-[24px] -mr-[3px]"
+                      />
                       <p className="text-center text-xl  cursor-pointer my-1 p-3 rounded-lg inline-block">
                         {list.text}
                       </p>

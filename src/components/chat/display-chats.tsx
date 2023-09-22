@@ -1,20 +1,24 @@
-import React from "react";
-import { BsThreeDotsVertical } from "react-icons/bs";
 import {
-  SearchSVG,
-  ReceiveChatText,
-  SendChatText,
   EmojiSVG,
+  SearchSVG,
   AttachSVG,
+  SendChatText,
+  ReceiveChatText,
 } from "../shared";
+import React from "react";
 import Image from "next/image";
+import { BsThreeDotsVertical } from "react-icons/bs";
+import { BackButton } from "../Sidebar/kanban/mobile";
 
-const DisplayChats = () => {
+const DisplayChats = (props: { onclick?: any }) => {
   return (
-    <div className="hidden xl:flex xl:w-[70%] overflow-y-auto no-scrollbar">
+    <div className="w-screen lg:w-[70%] xl:w-[64%] 2xl:w-[72%] overflow-y-auto no-scrollbar">
       {/* chat contact */}
-      <div className="w-[70%] pl-7 pr-10 py-2 absolute top-0 flex justify-between">
+      <div className="w-screen lg:w-[70%]  xl:w-[64%] 2xl:w-[72%]  pl-7 pr-10 py-2 absolute top-0 flex justify-between">
         <div className="flex gap-3 items-center">
+          <div onClick={props.onclick}>
+            <BackButton />
+          </div>
           <Image
             src="/images/user-avatar.png"
             alt={"avatar"}
@@ -30,7 +34,7 @@ const DisplayChats = () => {
       </div>
 
       {/* chats */}
-      <div className="w-[70%] h-[77%] flex flex-col absolute top-20 pl-7 pr-10 overflow-y-auto no-scrollbar">
+      <div className="lg:w-[70%] xl:w-[64%] 2xl:w-[72%] h-[77%] flex flex-col absolute top-20 pl-7 pr-10 overflow-y-auto no-scrollbar">
         <>
           <div className="bg-[#242424] text-[#999999] mx-auto py-1 px-3 rounded-md">
             Yesterday
@@ -105,9 +109,9 @@ const DisplayChats = () => {
       </div>
 
       {/* //chat input */}
-      <div className="absolute bottom-3 w-[70%] pl-7 pr-10 py-3">
+      <div className="absolute bottom-3 w-screen lg:w-[70%] xl:w-[64%] 2xl:w-[72%] pl-7 pr-10">
         <div
-          className={`flex items-center rounded-full w-[100%] h-auto px-6 py-4 gap-3 text-[#999999] border-zinc-200 border-[1px]`}
+          className={`flex items-center rounded-full w-[100%] h-auto px-6 py-3 gap-3 text-[#999999] border-zinc-200 border-[1px]`}
         >
           <EmojiSVG />
           <AttachSVG />

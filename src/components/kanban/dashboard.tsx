@@ -32,7 +32,7 @@ const KanbanDashboard = () => {
         <div>
           <button
             onClick={displayAddTaskModal}
-            className="relative py-2 pl-2 sm:pl-4 pr-1 sm:pr-2 gap-1 sm:gap-2 flex items-center text-[18px] sm:text-[24px] font-medium rounded-lg buttonLinearBackground"
+            className="relative py-2 pl-2 sm:pl-4 pr-1 sm:pr-2 gap-1 sm:gap-2 flex items-center text-[18px] sm:text-[20px] font-medium rounded-lg buttonLinearBackground"
           >
             <p>Add task</p>
             <BiPlus className="w-[24px] h-[24px] " />
