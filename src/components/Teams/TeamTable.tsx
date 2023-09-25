@@ -4,18 +4,15 @@ import Image from "next/image";
 import React, { useState } from 'react';
 import { BiCaretDown, BiFilterAlt } from "react-icons/bi";
 import { ImCancelCircle } from "react-icons/im";
+import RemoveTeamMemberModal from './RemoveTeamMemberModal';
 
 type Props = {};
 
 const TeamTable = (props: Props) => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
 
-  const openModal = () => {
-    setIsModalOpen(true);
-  };
-
-  const closeModal = () => {
-    setIsModalOpen(false);
+  const toggleModal = () => {
+    setModalOpen(!modalOpen);
   };
 
   return (
@@ -125,7 +122,8 @@ const TeamTable = (props: Props) => {
             </td>
             <td className="px-6 py-4 w-20 whitespace-nowrap text-half-font">
               {/* Add remove button or action here */}
-              <button className="text-white-500"><ImCancelCircle className="w-6 h-6 ml-1" /></button>
+              <button className="text-white-500"><ImCancelCircle className="w-6 h-6 ml-1" onClick={toggleModal} /></button>
+              <RemoveTeamMemberModal isOpen={modalOpen} onClose={toggleModal} />
             </td>
           </tr>
 
@@ -173,7 +171,8 @@ const TeamTable = (props: Props) => {
             </td>
             <td className="px-6 py-4 w-20 whitespace-nowrap text-half-font">
               {/* Add remove button or action here */}
-              <button className="text-white-500"><ImCancelCircle className="w-6 h-6 ml-1" /></button>
+              <button className="text-white-500"><ImCancelCircle className="w-6 h-6 ml-1" onClick={toggleModal} /></button>
+              <RemoveTeamMemberModal isOpen={modalOpen} onClose={toggleModal} />
             </td>
           </tr>
 
@@ -221,32 +220,8 @@ const TeamTable = (props: Props) => {
             </td>
             <td className="px-6 py-4 w-20 whitespace-nowrap text-half-font">
               {/* Add remove button or action here */}
-              <button
-  type="button"
-  className="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
-  data-modal-hide="popup-modal"
-  onClick={closeModal}
->
-  <ImCancelCircle className="w-3 h-3" />
-  <span className="sr-only">Close modal</span>
-</button>
-
-<button
-  data-modal-hide="popup-modal"
-  type="button"
-  className="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2"
->
-  Yes, I'm sure
-</button>
-
-<button
-  data-modal-hide="popup-modal"
-  type="button"
-  className="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600"
->
-  No, cancel
-</button>
-
+              <button className="text-white-500"><ImCancelCircle className="w-6 h-6 ml-1" onClick={toggleModal} /></button>
+              <RemoveTeamMemberModal isOpen={modalOpen} onClose={toggleModal} />
             </td>
           </tr>
 
