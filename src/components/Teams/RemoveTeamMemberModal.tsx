@@ -11,7 +11,7 @@ const RemoveTeamMemberModal: React.FC<RemoveTeamMemberModalProps> = ({ isOpen, o
   if (!isOpen) return null;
 
   return (
-    <div className="fixed top-0 left-0 right-0 z-50 w-full h-screen overflow-x-hidden overflow-y-auto">
+    <div className="fixed top-0 left-0 right-0 z-50 w-full h-screen overflow-x-hidden overflow-y-auto" style={{ top: '5.7rem' }}>
       <div className="relative w-full max-w-md mx-auto max-h-full p-4 md:inset-0">
         <div className="relative bg-black rounded-lg shadow-lg text-white">
           {/* Modal content */}
