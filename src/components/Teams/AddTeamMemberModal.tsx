@@ -1,4 +1,5 @@
 import React from 'react';
+import { ImCancelCircle } from 'react-icons/im';
 
 interface AddTeamMemberModalProps {
   isOpen: boolean;
@@ -12,34 +13,23 @@ const AddTeamMemberModal: React.FC<AddTeamMemberModalProps> = ({ isOpen, onClose
     <div className="fixed top-0 left-0 right-0 z-50 w-full h-screen overflow-x-hidden overflow-y-auto">
       <div className="relative w-full max-w-md mx-auto max-h-full p-4 md:inset-0">
         <div className="relative bg-black rounded-lg shadow-lg text-white">
-          {/* Close button */}
+          {/* Close button at the top */}
           <button
             type="button"
-            className="absolute top-3 right-2.5 text-white bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-full w-10 h-10 ml-auto inline-flex justify-center items-center"
+            className="absolute top-5  right-2.5 text-white bg-transparent rounded-full w-10 h-10 inline-flex justify-center items-center"
             onClick={onClose}
           >
-            <svg
-              className="w-5 h-5"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 14 14"
-            >
-              <path
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
-              />
-            </svg>
+            <ImCancelCircle className="w-6 h-6 ml-1" />
             <span className="sr-only">Close modal</span>
           </button>
 
           {/* Modal content */}
           <div className="px-6 py-6 lg:px-8">
-            <h3 className="mb-2 text-2xl font-semibold">Add Team Member</h3>
-            <p className="mb-4 text-gray-300">Add a team member and assign roles to them.</p>
+            {/* Header text */}
+            <div className="text-center mt-16">
+              <h3 className="mb-2 text-2xl font-semibold">Add Team Member</h3>
+              <p className="mb-4 text-gray-300">Add a team member and assign roles to them.</p>
+            </div>
 
             {/* Form */}
             <form className="space-y-6" action="#">
