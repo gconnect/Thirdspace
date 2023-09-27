@@ -386,10 +386,10 @@ export const TaskCard = (props: { borderColor: string }) => {
 
 export const SendChatText = (props: { text: string; time: string }) => {
   return (
-    <div className="flex self-end bg-[#242424] text-[#999999] w-auto max-w-[60%] rounded-3xl px-7 py-4 ">
+    <div className="flex self-end bg-[#242424] text-[#999999] text-sm w-auto max-w-[80%] sm:max-w-[60%] rounded-3xl px-5 sm:px-7 py-3 sm:py-4">
       <div className="text-left bg-[#242424] text-[#999999]">
         <p>{props.text}</p>
-        <p className="text-right mt-[6px]">{props.time}</p>
+        <p className="text-right mt-0 text-[11px]">{props.time}</p>
       </div>
     </div>
   );
@@ -397,9 +397,9 @@ export const SendChatText = (props: { text: string; time: string }) => {
 
 export const ReceiveChatText = (props: { text: string; time: string }) => {
   return (
-    <div className="self-start bg-[#242424] text-[#999999] w-auto max-w-[60%] rounded-3xl px-7 py-4">
+    <div className="self-start bg-[#242424] text-sm text-[#999999] w-auto max-w-[80%] sm:max-w-[60%] rounded-3xl px-5 sm:px-7 py-3 sm:py-4">
       <p>{props.text}</p>
-      <p className="text-right mt-[6px]">{props.time}</p>
+      <p className="text-right mt-0 sm:mt-[6px] text-[11px]">{props.time}</p>
     </div>
   );
 };

@@ -4,6 +4,7 @@ import {
   DashboardSearch,
   ArrowdownIcon,
 } from "@/components/shared";
+import Image from "next/image";
 import TaskPanel from "@/components/kanban/task-panel";
 import KanbanDashboard from "@/components/kanban/dashboard";
 import KanbanSidebar from "../../components/Sidebar/kanban/desktop";
@@ -29,12 +30,74 @@ const KanbanComponent = () => {
           <FilterIcon />
           Filter
         </div>
-        <div className="flex gap-1 sm:gap-2 pl-2 sm:pl-5 pr-1 sm:pr-3 py-2 border-[1px] border-[#999999] items-center">
-          Assignee <ArrowdownIcon />
+
+        <div className="flex items-center">
+          <select
+            style={{
+              WebkitAppearance: "none",
+              appearance: "none",
+            }}
+            className="w-[230px] py-[9px] none -mr-[10px] pl-4 text-[18px] border-[1px] border-zinc-300  font-normal bg-black text-white focus:[#873ab3] focus:[#873ab3] focus:ring-1"
+          >
+            <option>Assignee</option>
+            {[
+              { id: 1, src: "/images/user-avatar.png", name: "Frank W" },
+              { id: 2, src: "/images/user-avatar.png", name: "Frankfurt W" },
+              { id: 3, src: "/images/user-avatar.png", name: "Frank W" },
+              { id: 4, src: "/images/user-avatar.png", name: "Frankfurt W" },
+            ].map((list) => {
+              return (
+                <option
+                  key={list.id}
+                  style={{
+                    paddingTop: 5,
+                    paddingBottom: 5,
+                  }}
+                  className="h-auto flex items-center "
+                >
+                  {/* <img src={list.src} alt="avatar " width={30} height={30} /> */}
+                  <p>{list.name}</p>
+                </option>
+              );
+            })}
+          </select>
+          <div className="relative right-5">
+            <ArrowdownIcon />
+          </div>
         </div>
-        <div className="flex gap-1 sm:gap-2 pl-2 sm:pl-5 pr-1 sm:pr-3 py-2 border-[1px] border-[#999999] items-center">
-          Due date
-          <ArrowdownIcon />
+
+        <div className="flex items-center">
+          <select
+            style={{
+              WebkitAppearance: "none",
+              appearance: "none",
+            }}
+            className="w-[230px] py-[9px] none -mr-[10px] pl-4 text-[18px] border-[1px] border-zinc-300  font-normal bg-black text-white focus:[#873ab3] focus:[#873ab3] focus:ring-1"
+          >
+            <option>Due Date</option>
+            {[
+              { id: 1, date: "June 1" },
+              { id: 2, date: "June 12" },
+              { id: 3, date: "June 18" },
+              { id: 4, date: "June 30" },
+            ].map((list) => {
+              return (
+                <option
+                  key={list.id}
+                  style={{
+                    paddingTop: 5,
+                    paddingBottom: 5,
+                  }}
+                  className="h-auto flex items-center "
+                >
+                  <p>{list.date}</p>
+                </option>
+              );
+            })}
+          </select>
+          <div className="relative right-5">
+            <ArrowdownIcon />
+          </div>
         </div>
       </section>
 

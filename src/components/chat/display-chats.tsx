@@ -5,12 +5,41 @@ import {
   SendChatText,
   ReceiveChatText,
 } from "../shared";
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { BackButton } from "../Sidebar/kanban/mobile";
 
+type Message = {
+  text: string;
+  sender: string;
+  timestamp: string;
+};
+
 const DisplayChats = (props: { onclick?: any }) => {
+  const [messages, setMessages] = useState<Message[] | []>([]);
+  const [messageInput, setMessageInput] = useState<string>("");
+  const chatBoxRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (chatBoxRef.current) {
+      chatBoxRef.current.scrollTop = chatBoxRef.current.scrollHeight;
+    }
+  }, [messages]);
+
+  const handleSendMessage = () => {
+    if (messageInput.trim() === "") return;
+
+    const newMessage: Message = {
+      text: messageInput,
+      sender: "Me",
+      timestamp: new Date().toLocaleTimeString(),
+    };
+
+    setMessages([...messages, newMessage]);
+    setMessageInput("");
+  };
+
   return (
     <div className="w-screen lg:w-[70%] xl:w-[64%] 2xl:w-[72%] overflow-y-auto no-scrollbar">
       {/* chat contact */}
@@ -34,7 +63,10 @@ const DisplayChats = (props: { onclick?: any }) => {
       </div>
 
       {/* chats */}
-      <div className="lg:w-[70%] xl:w-[64%] 2xl:w-[72%] h-[77%] flex flex-col absolute top-20 pl-7 pr-10 overflow-y-auto no-scrollbar">
+      <div
+        ref={chatBoxRef}
+        className="lg:w-[70%] xl:w-[64%] 2xl:w-[72%] h-[79%] flex flex-col absolute top-20 pl-2 sm:pl-7 pr-2 sm:pr-10 overflow-y-auto no-scrollbar"
+      >
         <>
           <div className="bg-[#242424] text-[#999999] mx-auto py-1 px-3 rounded-md">
             Yesterday
@@ -96,20 +128,21 @@ const DisplayChats = (props: { onclick?: any }) => {
               time="3:45PM"
             />
 
-            <SendChatText
-              text="What did the cow say to the chicken?"
-              time="3:45PM"
-            />
-            <SendChatText
-              text="What did the cow say to the chicken?"
-              time="3:45PM"
-            />
+            {messages.map((message, index) => {
+              return (
+                <SendChatText
+                  key={index}
+                  text={message.text}
+                  time={message.timestamp}
+                />
+              );
+            })}
           </div>
         </>
       </div>
 
       {/* //chat input */}
-      <div className="absolute bottom-3 w-screen lg:w-[70%] xl:w-[64%] 2xl:w-[72%] pl-7 pr-10">
+      <div className="absolute bottom-2 w-screen lg:w-[70%] xl:w-[64%] 2xl:w-[72%] pl-7 pr-10">
         <div
           className={`flex items-center rounded-full w-[100%] h-auto px-6 py-3 gap-3 text-[#999999] border-zinc-200 border-[1px]`}
         >
@@ -119,8 +152,19 @@ const DisplayChats = (props: { onclick?: any }) => {
             type="text"
             placeholder="Write your message here"
             className="bg-inherit focus:outline-none mx-3 "
+            value={messageInput}
+            onChange={(e) => setMessageInput(e.target.value)}
+            onKeyUp={(e) => {
+              if (e.key === "Enter") handleSendMessage();
+            }}
           />
-          <Image src="/images/send.png" alt="send" width={40} height={20} />
+          <Image
+            alt="send"
+            width={40}
+            height={20}
+            src="/images/send.png"
+            onClick={handleSendMessage}
+          />
         </div>
       </div>
     </div>

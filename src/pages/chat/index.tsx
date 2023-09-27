@@ -1,20 +1,13 @@
+import Image from "next/image";
 import React, { useState } from "react";
-import {
-  AttachSVG,
-  DashboardSearch,
-  EmojiSVG,
-  ReceiveChatText,
-  SearchSVG,
-  SendChatText,
-} from "@/components/shared";
+import { BiPlus } from "react-icons/bi";
 import ChatDashboard from "@/components/chat/dashboard";
+import CreateGroup from "@/components/chat/create-group";
+import DisplayChats from "@/components/chat/display-chats";
+import { SearchSVG, DashboardSearch } from "@/components/shared";
 import KanbanSidebarMobile from "@/components/Sidebar/kanban/mobile";
 import KanbanSidebarDesktop from "@/components/Sidebar/kanban/desktop";
-import Image from "next/image";
-import { BiPlus } from "react-icons/bi";
-import { BsThreeDotsVertical } from "react-icons/bs";
-import DisplayChats from "@/components/chat/display-chats";
-import CreateGroup from "@/components/chat/create-group";
+import NoChat from "@/components/chat/no-chat";
 
 const ChatComponent = () => {
   const [newGroup, setNewGroup] = useState(false);
@@ -159,18 +152,33 @@ const ChatComponent = () => {
             ].map((list) => {
               return (
                 <section
-                  onClick={toggleOpenChat}
+                  onClick={() => setOpenChat(true)}
                   key={list.id}
                   className="w-full h-[75px] flex items-center justify-between"
                 >
                   <div className="flex items-center justify-center gap-2">
-                    <div className="w-[60px] h-[60px] rounded-full">
+                    <div className="relative bg-white w-[60px] h-[60px] rounded-full">
                       <Image
                         width={60}
                         height={60}
                         alt="user-avatar"
                         src="/images/user-avatar.png"
                       />
+                      <div className="absolute z-1 bottom-0 right-3">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="8"
+                          height="8"
+                          viewBox="0 0 8 8"
+                          fill="none"
+                        >
+                          <path
+                            d="M8 4C8 5.06087 7.57857 6.07828 6.82843 6.82843C6.07828 7.57857 5.06087 8 4 8C2.93913 8 1.92172 7.57857 1.17157 6.82843C0.421428 6.07828 0 5.06087 0 4C0 2.93913 0.421428 1.92172 1.17157 1.17157C1.92172 0.421428 2.93913 0 4 0C5.06087 0 6.07828 0.421428 6.82843 1.17157C7.57857 1.92172 8 2.93913 8 4Z"
+                            fill="#13F129"
+                            // fill="#999999"
+                          />
+                        </svg>
+                      </div>
                     </div>
                     <div className="flex flex-col gap-2">
                       <p className="text-[11px] ">{list.name}</p>
@@ -200,8 +208,17 @@ const ChatComponent = () => {
           </div>
         </div>
 
-        <div className="hidden xl:flex">
-          <DisplayChats />
+        <div>
+          {openChat && (
+            <div className="hidden xl:flex">
+              <DisplayChats />
+            </div>
+          )}
+          {!openChat && (
+            <div className="hidden xl:flex">
+              <NoChat />
+            </div>
+          )}{" "}
         </div>
       </section>
     </main>
