@@ -1,6 +1,9 @@
 import { useState } from "react";
 import ViewTask from "@/components/kanban/viewTask";
 import Image from "next/image";
+import ModalRef from "./kanban/modal-ref";
+import { AiOutlineDelete } from "react-icons/ai";
+import { TbEdit } from "react-icons/tb";
 
 export const Hamburger = () => {
   return (
@@ -314,15 +317,67 @@ export const TaskCard = (props: { borderColor: string }) => {
     return setViewTask(!viewTask);
   };
 
+  const [openTaskMenu, setOpenTaskMenu] = useState(false);
+  const toggleOpenTaskMenu = () => {
+    console.log("clicked");
+    setOpenTaskMenu(!openTaskMenu);
+  };
+
+  const TaskMenu = (props: { handleEditTask: any; handleDeleteTask: any }) => {
+    const Menu = [
+      {
+        id: 1,
+        title: "View/Edit task",
+        icon: <TbEdit />,
+        onclick: props.handleEditTask,
+      },
+      {
+        id: 2,
+        title: "Delete task",
+        icon: <AiOutlineDelete />,
+        onclick: props.handleDeleteTask,
+      },
+    ];
+    return (
+      <div className="bg-white text-black h-auto w-[180px] py-3 absolute top-8 right-0 flex flex-col gap-2 rounded-md   ">
+        {Menu.map((list) => {
+          return (
+            <p
+              key={list.id}
+              className="flex gap-1.5 items-center py-1 px-3.5"
+              onClick={list.onclick}
+            >
+              {list.icon} {list.title}
+            </p>
+          );
+        })}
+      </div>
+    );
+  };
+
   return (
     <>
       <div
-        onClick={displayViewTaskModal}
         className={`${props.borderColor} max-w-[320px] flex flex-col px-[14px] py-[34px] border-[1px] rounded-md`}
       >
         <div className="flex flex-row justify-between">
           <p>Armored Core</p>
-          <ThreeDotIcon />
+          <div className="relative">
+            <div onClick={toggleOpenTaskMenu}>
+              <ThreeDotIcon />
+            </div>
+
+            <ModalRef onClose={() => setOpenTaskMenu(false)}>
+              {openTaskMenu ? (
+                <TaskMenu
+                  handleEditTask={displayViewTaskModal}
+                  handleDeleteTask={undefined}
+                />
+              ) : (
+                ""
+              )}
+            </ModalRef>
+          </div>
         </div>
         <p className="pt-[28px] pb-[55px]">
           Acronis looks forward to working with the security community to find
