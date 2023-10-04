@@ -15,7 +15,7 @@ const HeroBanner = () => {
 
         {/* Desktop View */}
 
-        <div className="hidden md:flex flex-col ">
+        <div className="hidden md:flex flex-col">
           <h1 className="text-center text-white font-extrabold xl:text-8xl mx-24 lg:text-6xl md:text-5xl font-dmSans items-center justify-center mt-56 Q` leading-[70px] ">
           All-In-One <span className="logoGradient">Workspace </span>
             <br /> <p className="logoGradient mt-6">for Startups</p>
