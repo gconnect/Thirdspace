@@ -28,7 +28,7 @@ module.exports = {
       colors: {
         "lg-1": "#FC8C02",
         "bl-1": "#0F0F0F",
-        "roadmap": "4c3422"
+        roadmap: "4c3422",
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
