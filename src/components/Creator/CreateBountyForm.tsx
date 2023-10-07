@@ -2,6 +2,7 @@ import { useState } from "react";
 import { BsArrowUpRight } from "react-icons/bs";
 
 import SuccessPageModal from "./SuccessPageModal";
+import { BASE_URL } from "@/utils/constants";
 
 // import {Input} from "@chakra-ui/react"
 
@@ -67,35 +68,33 @@ const CreateBountyForm = (props: Props) => {
     }
   };
 
+
   const formSubmitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     setIsLoading(true);
-
+    const token = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIzMmNmNTY5NC00YjEzLTQxYzctYWIwYy05OTJmNmU5ZDIwZWYiLCJpYXQiOjE2OTYzODU1NDUsImV4cCI6MTY5NjQ3MTk0NX0.HYtygaSG2avA5kmcgOPe97OtAkMNsgocycaAduLNrBU"
     try {
       const response = await fetch(
-        `${process.env.NEXT_PUBLIC_BASE_URL}/api/Bounty/create`,
+        `${BASE_URL}/bounties`,
         {
           method: "POST",
           body: JSON.stringify({
-            name: title,
+            title: title,
             repo_link: repoLink,
-            reward: amount,
-            submission_start: startDate,
-            submission_end: endDate,
-            desc: description,
-            bounty_space_id: "1",
+            amount: amount,
+            start_date: startDate,
+            end_date: endDate,
+            bounty_description: description,
+            workspaceId: "9c2c44e1-a5ea-4154-a622-6782f9732015",
           }),
           headers: {
             "Content-Type": "application/json",
+            "Authorization": token
           },
         }
       );
-
-      const data = await response.json();
-
-      console.log(data);
-
+      console.log(response.body)
       setIsLoading(false);
 
       setShowSuccessPage(true);
