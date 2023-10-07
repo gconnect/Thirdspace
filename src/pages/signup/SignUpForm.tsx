@@ -46,7 +46,6 @@ const SignUpForm = (props: Props) => {
     "password": password
   }
 
-
   const formSubmitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -77,9 +76,7 @@ const SignUpForm = (props: Props) => {
       setPassword("");
       setFullName("");
     } catch (err) {
-      console.log(err);
-      setIsLoading(false);
-    
+      setIsLoading(false);   
       enqueueSnackbar(`An error occured ${err}`, {
         autoHideDuration: 3000,
         variant: "error"
