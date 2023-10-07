@@ -1,0 +1,36 @@
+<svg width="152" height="152" viewBox="0 0 152 152" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="152" height="152" fill="#1E1E1E"/>
+<g id="Remove member" filter="url(#filter0_b_0_1)">
+<rect width="1512" height="984" transform="translate(-680 -324)" fill="#050505" fill-opacity="0.2"/>
+<g id="Frame 9">
+<rect width="632" height="484" transform="translate(-240 -72)" fill="#0F0F0F"/>
+<g id="icon-park-solid:caution">
+<g id="Mask group">
+<mask id="mask0_0_1" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="2" y="10" width="152" height="132">
+<g id="Group">
+<g id="Group_2">
+<path id="Vector" fill-rule="evenodd" clip-rule="evenodd" d="M78 16L8 136H148L78 16Z" fill="white" stroke="white" stroke-width="12" stroke-linejoin="round"/>
+<path id="Vector_2" d="M76 108.941V112M76 60L76.0255 90.5882" stroke="black" stroke-width="12" stroke-linecap="round"/>
+</g>
+</g>
+</mask>
+<g mask="url(#mask0_0_1)">
+<path id="Vector_3" d="M0 0H152V152H0V0Z" fill="url(#paint0_linear_0_1)"/>
+</g>
+</g>
+</g>
+</g>
+</g>
+<defs>
+<filter id="filter0_b_0_1" x="-712" y="-356" width="1576" height="1048" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feGaussianBlur in="BackgroundImageFix" stdDeviation="16"/>
+<feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur_0_1"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur_0_1" result="shape"/>
+</filter>
+<linearGradient id="paint0_linear_0_1" x1="-65.398" y1="152" x2="179.428" y2="150.138" gradientUnits="userSpaceOnUse">
+<stop stop-color="#FC8C02"/>
+<stop offset="1" stop-color="#5618FF"/>
+</linearGradient>
+</defs>
+</svg>
