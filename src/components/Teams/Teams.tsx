@@ -1,14 +1,24 @@
 import { profileImage } from "@/assets";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 import TeamsNavbar from "./TeamsNavbar";
 import TeamTable from "./TeamTable";
+import AddTeamMemberModal from "./AddTeamMemberModal";
 Image;
 
 type Props = {};
 
 const Teams = (props: Props) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
   return (
     <div className=" bg-black text-white min-h-screen p-6">
       <div className="user-image-container absolute top-4 right-4">
@@ -22,7 +32,7 @@ const Teams = (props: Props) => {
       </Link>
        
       </div>
-      <TeamsNavbar/>
+      <TeamsNavbar />
       <TeamTable/>
     </div>
   );
