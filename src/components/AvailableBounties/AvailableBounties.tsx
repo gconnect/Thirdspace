@@ -13,7 +13,7 @@ type Props = {};
 const AvailableBounties = (props: Props) => {
 
 const { data: session } = useSession()
-console.log(session?.user.token )
+
  
   //
   return (
@@ -23,11 +23,6 @@ console.log(session?.user.token )
           <Link href="/">
             <Image src={logo} alt="logo" width={180} />
           </Link>
-         { session?.user ? 
-         <button className="bg-green-500" onClick={() => signOut()}>Sign out</button> :
-          <button className="bg-red-500" onClick={() => signIn()}>Login</button>
-         }
-
         </div>
         {/* Desktop View */}
         <div className="   bg-[#0A0A0A] h-full p-2 mt-10 mx-6 md:mx-0 ">

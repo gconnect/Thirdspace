@@ -3,6 +3,7 @@ import { BsArrowUpRight } from "react-icons/bs";
 
 import SuccessPageModal from "./SuccessPageModal";
 import { BASE_URL } from "@/utils/constants";
+import { useSession } from "next-auth/react";
 
 // import {Input} from "@chakra-ui/react"
 
@@ -19,6 +20,7 @@ const CreateBountyForm = (props: Props) => {
 
   const [isLoading, setIsLoading] = useState(false);
   const [showSuccessPage, setShowSuccessPage] = useState<boolean>(false);
+  const { data: session } = useSession()
 
   // onChange Handler functions
   const titleChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -73,7 +75,7 @@ const CreateBountyForm = (props: Props) => {
     e.preventDefault();
 
     setIsLoading(true);
-    const token = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIzMmNmNTY5NC00YjEzLTQxYzctYWIwYy05OTJmNmU5ZDIwZWYiLCJpYXQiOjE2OTYzODU1NDUsImV4cCI6MTY5NjQ3MTk0NX0.HYtygaSG2avA5kmcgOPe97OtAkMNsgocycaAduLNrBU"
+    const token = `Bearer ${session?.user.token}`
     try {
       const response = await fetch(
         `${BASE_URL}/bounties`,
@@ -86,7 +88,7 @@ const CreateBountyForm = (props: Props) => {
             start_date: startDate,
             end_date: endDate,
             bounty_description: description,
-            workspaceId: "9c2c44e1-a5ea-4154-a622-6782f9732015",
+            workspaceId: "",
           }),
           headers: {
             "Content-Type": "application/json",

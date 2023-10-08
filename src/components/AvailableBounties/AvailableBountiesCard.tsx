@@ -4,7 +4,7 @@ import { BiSearch } from "react-icons/bi";
 import BountyDetailModal from "./BountyDetailModal";
 import { BASE_URL } from "@/utils/constants";
 import axios from "axios";
-
+import { useSession } from "next-auth/react";
 type Props = {
   selectedBounty: Bounty | null;
 };
@@ -31,12 +31,12 @@ const AvailableBountiesCard = (props: any) => {
   };
 
   const getAvailableBounties = useCallback(async () => {
-    const token = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIzMmNmNTY5NC00YjEzLTQxYzctYWIwYy05OTJmNmU5ZDIwZWYiLCJpYXQiOjE2OTYzODU1NDUsImV4cCI6MTY5NjQ3MTk0NX0.HYtygaSG2avA5kmcgOPe97OtAkMNsgocycaAduLNrBU"
+    const { data: session } = useSession()
 
     try{
       const res = await axios.get(`${BASE_URL}/bounties`, {
         headers:{
-          Authorization: token
+          Authorization: `Bearer ${session?.user.token}`
         }
       })
       setAvailableBounties(res.data)
