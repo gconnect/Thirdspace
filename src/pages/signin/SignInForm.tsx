@@ -4,10 +4,12 @@ import React, { useState } from "react";
 import { useSnackbar } from 'notistack';
 import GetStartedModal from "./GetStartedModal";
 import { useRouter } from "next/router";
+import { getCsrfToken, signIn, useSession } from "next-auth/react";
+import { Context } from "vm";
 
 type Props = {};
 
-const SignInForm = (props: Props) => {
+const SignInForm = ({csrfToken} : any) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [getStarted, setGetStarted] = useState(false);
@@ -15,6 +17,8 @@ const SignInForm = (props: Props) => {
   const [isLoading, setIsLoading] = useState(false);
   const { enqueueSnackbar } = useSnackbar();
   const router = useRouter()
+  const { data: session } = useSession()
+  // console.log(session?.user.token )
 
   const emailChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value);
@@ -36,7 +40,7 @@ const SignInForm = (props: Props) => {
   };
 
   const payLoad = {
-    "email": email,
+    "email" : email,
     "password": password
   }
 
@@ -46,19 +50,19 @@ const SignInForm = (props: Props) => {
     setIsLoading(true);
 
     try {
-      const response = await fetch(`${BASE_URL}/auth/login`, {
-        method: "POST",
-        body: JSON.stringify(payLoad),
-        headers: {
-          "Content-Type": "application/json",
+     const user = await signIn(
+        "credentials",
+        {
+         ...payLoad,
+         redirect: false,
+          // callbackUrl: "/signin"
         },
-      });
-
-      const data = await response.json();
-      if(!response.ok){
+      )
+      console.log(user )
+      if(!user?.ok){
         setIsLoading(false);
-        enqueueSnackbar(data, {
-          autoHideDuration: 3000,
+        enqueueSnackbar("Incorrect login credentials", {
+          autoHideDuration: 5000,
           variant: "error"
         })
         return
@@ -86,6 +90,7 @@ const SignInForm = (props: Props) => {
       <form onSubmit={formSubmitHandler} action="" className="font-dmSans">
         <div className="space-y-[8px] md:space-y-[16px] ">
           <div className="flex flex-col space-y-1">
+            <input type="hidden" name="csrfToken" defaultValue={csrfToken} />
             <label
               htmlFor="email"
               className="font-normal md:font-medium text-base md:text-lg"
@@ -155,4 +160,12 @@ const SignInForm = (props: Props) => {
   );
 };
 
+SignInForm.getInitialProps = async(context: Context) =>{
+  return{
+    csrfToken: await getCsrfToken(context)
+  } 
+}
+
 export default SignInForm;
+
+
