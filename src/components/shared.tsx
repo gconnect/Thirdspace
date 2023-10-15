@@ -263,6 +263,23 @@ export const CloseBtn = () => {
   );
 };
 
+export const AcceptBtn = () => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="25"
+      height="24"
+      viewBox="0 0 25 24"
+      fill="none"
+    >
+      <path
+        d="M21.9023 6.52734L9.375 19.0664L2.84766 12.5273L3.90234 11.4727L9.375 16.9336L20.8477 5.47266L21.9023 6.52734Z"
+        fill="white"
+      />
+    </svg>
+  );
+};
+
 export const ArrowRightDiagonalBtn = () => {
   return (
     <svg

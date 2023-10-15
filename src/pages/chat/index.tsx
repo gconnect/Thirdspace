@@ -5,9 +5,9 @@ import ChatDashboard from "@/components/chat/dashboard";
 import CreateGroup from "@/components/chat/create-group";
 import DisplayChats from "@/components/chat/display-chats";
 import { SearchSVG, DashboardSearch } from "@/components/shared";
-import KanbanSidebarMobile from "@/components/Sidebar/kanban/mobile";
-import KanbanSidebarDesktop from "@/components/Sidebar/kanban/desktop";
 import NoChat from "@/components/chat/no-chat";
+import SidebarDesktop from "@/components/Sidebar/desktop";
+import SidebarMobile from "@/components/Sidebar/mobile";
 
 const ChatComponent = () => {
   const [newGroup, setNewGroup] = useState(false);
@@ -26,7 +26,7 @@ const ChatComponent = () => {
     <main className="w-full h-screen ">
       <section className="h-[16%] sm:h-[18%] md:h-[21%] xl:h-[15%] border-b-[1px] border-zinc-300  bg-black pt-6 lg:pt-12 px-4 sm:px-8 md:px-12">
         <section className="flex items-center gap-5 sm:gap-10">
-          <KanbanSidebarMobile />
+          <SidebarMobile />
           <ChatDashboard />
         </section>
 
@@ -227,9 +227,9 @@ const ChatComponent = () => {
 
 const Index = () => {
   return (
-    <KanbanSidebarDesktop>
+    <SidebarDesktop>
       <ChatComponent />
-    </KanbanSidebarDesktop>
+    </SidebarDesktop>
   );
 };
 

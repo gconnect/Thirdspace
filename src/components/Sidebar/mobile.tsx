@@ -26,7 +26,7 @@ export const BackButton = () => {
   );
 };
 
-const KanbanSidebarMobile = () => {
+const SidebarMobile = () => {
   const [sidebar, setSidebar] = useState(false);
   const toggleSidebar = () => {
     return setSidebar(!sidebar);
@@ -154,4 +154,4 @@ const KanbanSidebarMobile = () => {
   );
 };
 
-export default KanbanSidebarMobile;
+export default SidebarMobile;

@@ -1,24 +1,27 @@
-import { profileImage } from "@/assets";
-import Image from "next/image";
 import Link from "next/link";
+import Image from "next/image";
+import { profileImage } from "@/assets";
 import React, { useState } from "react";
-import { BiSearch } from "react-icons/bi";
-import { BsFillPeopleFill } from "react-icons/bs";
-import { AiOutlinePlus } from "react-icons/ai";
 import MembersCart from "./MembersCart";
-import AddMemberModal from "./AddMemberModal";
+import { BiSearch } from "react-icons/bi";
 import AddMemberForm from "./AddMemberForm";
+import AddMemberModal from "./AddMemberModal";
+import SidebarMobile from "../Sidebar/mobile";
+import { AiOutlinePlus } from "react-icons/ai";
 import { BsArrowUpRight } from "react-icons/bs";
+import { BsFillPeopleFill } from "react-icons/bs";
 
 type Props = {};
 
 const Members = (props: Props) => {
   const [showModal, setShowModal] = useState<boolean>(false);
   return (
-    <div className="flex flex-col flex-wrap ml-[300px]  ">
+    <div className="flex flex-col flex-wrap">
       {/* Image container */}
-
-      <div className="px-10">
+      <div className="flex items-center justify-between px-10">
+        <div className="flex justify-start mt-10">
+          <SidebarMobile />
+        </div>
         <div className="flex justify-end mt-10  ">
           <Link href="/">
             <Image
@@ -29,6 +32,9 @@ const Members = (props: Props) => {
             />
           </Link>
         </div>
+      </div>
+
+      <div className="px-10">
         {/* Search and Add Members container */}
         <div className="flex flex-row  justify-between mt-10 ">
           {/* Members */}
