@@ -5,7 +5,7 @@ import React, { useState } from "react";
 import MembersCart from "./MembersCart";
 import { BiSearch } from "react-icons/bi";
 import AddMemberForm from "./AddMemberForm";
-import AddMemberModal from "./AddMemberModal";
+import AddMemberModal from "./MemberModal";
 import SidebarMobile from "../Sidebar/mobile";
 import { AiOutlinePlus } from "react-icons/ai";
 import { BsArrowUpRight } from "react-icons/bs";

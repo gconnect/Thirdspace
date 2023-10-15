@@ -4,11 +4,18 @@ import { AiOutlinePlus } from "react-icons/ai";
 import { BiSearch } from "react-icons/bi";
 import { BsFillPeopleFill, BsArrowUpRight } from "react-icons/bs";
 import AddMemberForm from "../Members/AddMemberForm";
-import AddMemberModal from "../Members/AddMemberModal";
 import MembersCart from "../Members/MembersCart";
+import MemberModal from "../Members/MemberModal";
+import Image from "next/image";
 
 const BountyMembers = () => {
   const [showModal, setShowModal] = useState<boolean>(false);
+  const [showSuccessModal, setShowSuccessModal] = useState<boolean>(false);
+
+  const closeSuccessModal = () => {
+    setShowModal(false);
+    setShowSuccessModal(false);
+  };
 
   return (
     <div>
@@ -48,12 +55,12 @@ const BountyMembers = () => {
       </div>
 
       {/* user container */}
-      <div className=" mt-10">
+      <div className="mt-10">
         <MembersCart />
       </div>
 
       {/* Add Member Modal Overlay */}
-      <AddMemberModal isVisible={showModal} onClose={() => setShowModal(false)}>
+      <MemberModal isVisible={showModal} onClose={() => setShowModal(false)}>
         <div className=" w-full mx-auto flex flex-col mt-4 items-center  p-14 ">
           <h2 className="text-white font-bold text-2xl text-center font-nexa">
             Add Member
@@ -69,8 +76,11 @@ const BountyMembers = () => {
 
           <AddMemberForm />
 
-          <div className="btnBackgroundGradient  rounded-[8px] mt-20 mb-10 ">
-            <Link href="/" className=" ">
+          <div
+            onClick={() => setShowSuccessModal(true)}
+            className="btnBackgroundGradient  rounded-[8px] mt-20 mb-10 "
+          >
+            <Link href="#" className=" ">
               <button className=" text-white w-[489px] h-[56px] flex justify-center items-center gap-2 ">
                 Send Invite
                 <BsArrowUpRight className=" w-6 h-6" />
@@ -78,7 +88,27 @@ const BountyMembers = () => {
             </Link>
           </div>
         </div>
-      </AddMemberModal>
+      </MemberModal>
+
+      <MemberModal isVisible={showSuccessModal} onClose={closeSuccessModal}>
+        <div className="w-full mx-auto flex flex-col gap-7 mt-4 items-center justify-center p-14 ">
+          <Image
+            width={150}
+            height={150}
+            src="/images/success.svg"
+            alt="bounty-avatar"
+            className="w-[150px] h-[150px]"
+          />
+
+          <h2 className="text-white font-bold text-2xl sm:text-3xl text-center font-nexa">
+            Hurray!
+          </h2>
+
+          <p className="text-[#999999] text-center mt-4 font-nexa text-sm sm:text-xl">
+            Invite has been sent successfully !
+          </p>
+        </div>
+      </MemberModal>
     </div>
   );
 };

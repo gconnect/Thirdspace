@@ -1,4 +1,5 @@
 import React from "react";
+import { CloseBtn } from "../shared";
 
 type Props = {
   isVisible: boolean;
@@ -6,7 +7,7 @@ type Props = {
   children: React.ReactNode;
 };
 
-const AddMemberModal = ({ isVisible, onClose, children }: Props) => {
+const MemberModal = ({ isVisible, onClose, children }: Props) => {
   if (!isVisible) return null;
 
   const handleClose = (e: any) => {
@@ -19,13 +20,13 @@ const AddMemberModal = ({ isVisible, onClose, children }: Props) => {
       id="wrapper"
       onClick={handleClose}
     >
-      <div className="w-[700px] h-[550px] bg-[#0F0F0F] flex flex-col relative ">
+      <div className="w-[700px] h-[550px] bg-[#0F0F0F] flex flex-col relative">
         <div className=" p-2 rounded">
           <button
             className="text-white text-2xl absolute top-6 right-10   "
             onClick={() => onClose()}
           >
-            X
+            <CloseBtn />
           </button>
           {children}
         </div>
@@ -34,4 +35,4 @@ const AddMemberModal = ({ isVisible, onClose, children }: Props) => {
   );
 };
 
-export default AddMemberModal;
+export default MemberModal;
