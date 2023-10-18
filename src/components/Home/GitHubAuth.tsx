@@ -19,7 +19,7 @@ const GitHubAuth = (props: Props) => {
         <div className="text-center items-center mx-auto">
           <p className="text-white font-nexa font-normal text-xl text-center mt-40">
             {" "}
-            Signed in as: {session.user.email}{" "}
+            Signed in as: {session.user.secureUser.email}{" "}
           </p>
           <br />
           <button

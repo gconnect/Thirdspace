@@ -1,6 +1,6 @@
 import { BASE_URL } from "@/utils/constants";
 
-export const login = async (email: string, password: string) => {
+export default async function login (email: string, password: string) {
 
     try{
     // Add logic here to look up the user from the credentials supplied

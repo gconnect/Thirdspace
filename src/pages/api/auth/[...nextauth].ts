@@ -1,7 +1,7 @@
 import NextAuth, { NextAuthOptions } from "next-auth";
 import GitHubProvider from "next-auth/providers/github";
 import CredentialsProvider from "next-auth/providers/credentials";
-import { login } from "@/pages/signin/api/login";
+import login  from "@/pages/signin/api/login";
 import { BASE_URL } from "@/utils/constants";
 
 export const authOptions: NextAuthOptions = {
