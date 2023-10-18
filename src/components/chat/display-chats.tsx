@@ -8,7 +8,7 @@ import {
 import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { BsThreeDotsVertical } from "react-icons/bs";
-import { BackButton } from "../Sidebar/kanban/mobile";
+import { BackButton } from "../Sidebar/mobile";
 
 type Message = {
   text: string;

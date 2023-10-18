@@ -19,7 +19,7 @@ const ModalRef: React.FC<ModalProps> = ({ onClose, children }) => {
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, []);
+  }, [handleClickOutside]);
 
   return (
     <div className="modal-outer">

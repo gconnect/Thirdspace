@@ -1,12 +1,19 @@
 import { userDetails } from "@/constants";
 import Image from "next/image";
+import Link from "next/link";
+import { BsArrowUpRight } from "react-icons/bs";
 import { CiCircleRemove } from "react-icons/ci";
+import AddMemberForm from "./AddMemberForm";
+import { useState } from "react";
+import MemberModal from "./MemberModal";
 
 type Props = {};
 
 const MembersCart = (props: Props) => {
+  const [showModal, setShowModal] = useState<boolean>(false);
+
   return (
-    <div className="bg-[#0A0A0A]  ">
+    <div className="bg-[#0A0A0A]">
       <div className="flex justify-between flex-row py-3 mx-6 font-nexa font-bold text-xl ">
         <h1 className="">User</h1>
         <h1 className="ml-10">Wallet Address</h1>
@@ -15,7 +22,7 @@ const MembersCart = (props: Props) => {
       {userDetails.map((userDetail) => (
         <div
           key={userDetail.id}
-          className=" flex  flex-row justify-between p-4 items-center border-b   border-[#1F1F1F]   "
+          className=" flex  flex-row justify-between p-4 items-center border-b border-[#1F1F1F]   "
         >
           <div className="flex flex-row items-center gap-2">
             <Image
@@ -36,7 +43,7 @@ const MembersCart = (props: Props) => {
             <p>{userDetail.iconCopy}</p>
           </button>
 
-          <div className="mr-6 ">
+          <div className="mr-6 " onClick={() => setShowModal(true)}>
             {userDetail.remove && (
               <button className="items-center rounded-full flex flex-row bg-[#B2000029] border border-[#B20000] w-[120%] justify-center gap-1 p-2 font-nexa font-normal  ">
                 <p>Remove</p>
@@ -47,6 +54,38 @@ const MembersCart = (props: Props) => {
               </button>
             )}
           </div>
+
+          <MemberModal
+            isVisible={showModal}
+            onClose={() => setShowModal(false)}
+          >
+            <div className="w-full mx-auto flex flex-col gap-7 mt-4 items-center justify-center p-14 ">
+              <Image
+                width={150}
+                height={150}
+                src="/images/caution.svg"
+                alt="bounty-avatar"
+                className="w-[150px] h-[150px]"
+              />
+
+              <h2 className="text-white font-bold text-2xl sm:text-3xl text-center font-nexa">
+                Wait a minute!
+              </h2>
+
+              <p className="text-[#999999] text-center mt-4 font-nexa text-sm sm:text-xl">
+                Are you sure you want to remove this member?
+              </p>
+
+              <div className="w-full flex items-center justify-around py-5 font-bold text-white">
+                <button className="flex  gap-3 px-5 sm:px-10 py-3 border-[1px] border-[#B20000] bg-[#551e1e]">
+                  No
+                </button>
+                <button className="flex  gap-3 px-5 sm:px-10 py-3  border-[1px] border-[#13F129] bg-[#3c6140] ">
+                  Yes
+                </button>
+              </div>
+            </div>
+          </MemberModal>
         </div>
       ))}
     </div>
