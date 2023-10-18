@@ -15,7 +15,7 @@ import {
   MenuList,
   Portal,
 } from "@chakra-ui/react";
-import Logo from "../../Ui/Logo";
+import Logo from "../Ui/Logo";
 import { logo } from "@/assets";
 import Image from "next/image";
 
@@ -28,10 +28,10 @@ export const kanbanItems = [
     icon: "/images/payroll-logo.png",
   },
   {
-    id: "outsource",
-    text: "Outsource",
-    link: "/outsource",
-    icon: "/images/outsource-logo.png",
+    id: "teams",
+    text: "Bounties",
+    link: "/bounty-creator",
+    icon: "/images/bounty.svg",
   },
 ];
 
@@ -50,7 +50,7 @@ export const iconItems = [
   },
 ];
 
-const KanbanSidebarDesktop = ({ children }) => {
+const SidebarDesktop = ({ children }) => {
   // const router = useRouter();
 
   return (
@@ -177,4 +177,4 @@ const DisplayAction = () => {
   );
 };
 
-export default KanbanSidebarDesktop;
+export default SidebarDesktop;

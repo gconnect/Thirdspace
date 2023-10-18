@@ -5,6 +5,7 @@ import React, { useEffect, useState } from "react";
 import BountyDetailModal from "./BountyDetailModal";
 
 import DummyImage from "../../assets/avb05.svg";
+import { BASE_URL } from "@/utils/constants";
 
 type Props = {
   selectedBounty: Bounty | null;
@@ -33,8 +34,8 @@ const AvailableBountiesCard = (props: Props) => {
   useEffect(() => {
     const Fetch = async () => {
       try {
-        const res = await fetch(
-          `${process.env.NEXT_PUBLIC_BASE_URL}/api/Bounty/getBounty`,
+        const res: any = await fetch(
+          `${BASE_URL}/bounties/created`,
           {
             headers: {
               "Content-Type": "application/json",
@@ -42,12 +43,7 @@ const AvailableBountiesCard = (props: Props) => {
             method: "GET",
           }
         );
-
-        if (!res.ok) {
-          throw new Error();
-        }
-
-        const result = await res.json();
+        const result = await res.data;
         console.log({ result }, "result");
         setAvailableBounties(result);
         console.log({ availableBounties }, "availableBounties");

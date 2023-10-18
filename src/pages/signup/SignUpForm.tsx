@@ -1,6 +1,9 @@
-import GetStartedModal from "@/pages/signup/GetStartedModal";
 import Link from "next/link";
 import React, { useState } from "react";
+import Router from "next/router";
+import { useSnackbar } from 'notistack';
+import { success } from "@/assets";
+import { BASE_URL } from "@/utils/constants";
 
 type Props = {};
 
@@ -8,64 +11,77 @@ const SignUpForm = (props: Props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [fullName, setFullName] = useState("");
-  const [isFormValid, setIsFormValid] = useState(false);
 
   const [isLoading, setIsLoading] = useState(false);
 
-  const [showModal, setShowModal] = useState(false);
+  const { enqueueSnackbar } = useSnackbar();
 
   const emailChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value);
-    checkFormValidity();
   };
 
   const passwordChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     setPassword(e.target.value);
-    checkFormValidity();
   };
 
   const fullNameChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFullName(e.target.value);
-    checkFormValidity();
   };
 
   const checkFormValidity = () => {
     if (
-      email.trim() !== "" &&
-      email.includes("@") &&
-      password.trim() !== "" &&
-      fullName.trim() !== ""
-    ) {
-      setIsFormValid(true);
-    } else {
-      setIsFormValid(false);
+      email.trim() == "" &&
+      !email.includes("@") &&
+      password.trim() == "" &&
+      fullName.trim() == ""
+    ){
+      enqueueSnackbar("All fields are required!");
+      return
     }
   };
+
+  const payLoad = {
+    "name": fullName,
+    "email": email,
+    "password": password
+  }
 
   const formSubmitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     setIsLoading(true);
-
+    checkFormValidity()
     try {
-      const response = await fetch("url", {
+      const response = await fetch(`${BASE_URL}/auth/signUp`, {
         method: "POST",
-        body: JSON.stringify({}),
+        body: JSON.stringify(payLoad),
         headers: {
           "Content-Type": "application/json",
         },
       });
-
       const data = await response.json();
+      if(!response.ok){
+        setIsLoading(false);
+        enqueueSnackbar(data, {
+          autoHideDuration: 3000,
+          variant: "error"
+        })
+        return
+      }
 
-      console.log(data);
-
+      setIsLoading(false);
+      enqueueSnackbar("Successfully added", success);
+      Router.push("/signin")
       setEmail("");
       setPassword("");
       setFullName("");
-    } catch (error) {
-      console.log(error);
-      setIsLoading(false);
+    } catch (err) {
+      setIsLoading(false);   
+      enqueueSnackbar(`An error occured ${err}`, {
+        autoHideDuration: 3000,
+        variant: "error"
+      })
+      return
     }
   };
 
@@ -129,12 +145,9 @@ const SignUpForm = (props: Props) => {
             />
           </div>
         </div>
-
         <button
           type="submit"
           className="mt-[30px] md:mt-[50px]  item just hover:btnBackgroundGradient bg-[#141414] cursor-pointer rounded-[8px] h-[50px] w-full  font-semibold  text-base md:text-lg"
-          onClick={() => setShowModal(true)}
-          disabled={!isFormValid}
         >
           Proceed
         </button>
@@ -156,16 +169,7 @@ const SignUpForm = (props: Props) => {
               </div>
             </div>
           </div>
-        ) : (
-          <div>
-            {showModal && (
-              <GetStartedModal
-                isVisible={showModal}
-                onClose={() => setShowModal(false)}
-              />
-            )}
-          </div>
-        )}
+        ): null }
       </form>
     </>
   );

@@ -1,57 +1,87 @@
+import { BASE_URL } from "@/utils/constants";
 import Link from "next/link";
 import React, { useState } from "react";
+import { useSnackbar } from 'notistack';
+import GetStartedModal from "./GetStartedModal";
+import { useRouter } from "next/router";
+import { getCsrfToken, signIn, useSession } from "next-auth/react";
+import { Context } from "vm";
 
 type Props = {};
 
-const SignInForm = (props: Props) => {
+const SignInForm = ({csrfToken} : any) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [isFormValid, setIsFormValid] = useState(false);
+  const [getStarted, setGetStarted] = useState(false);
 
   const [isLoading, setIsLoading] = useState(false);
+  const { enqueueSnackbar } = useSnackbar();
+  const router = useRouter()
+  const { data: session } = useSession()
+  // console.log(session?.user.token )
 
   const emailChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value);
-    checkFormValidity();
   };
 
   const passwordChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     setPassword(e.target.value);
-    checkFormValidity();
   };
 
   const checkFormValidity = () => {
-    if (email.trim() !== "" && email.includes("@") && password.trim() !== "") {
-      setIsFormValid(true);
-    } else {
-      setIsFormValid(false);
+    if (
+      email.trim() == "" &&
+      !email.includes("@") &&
+      password.trim() == ""
+    ){
+      enqueueSnackbar("All fields are required!");
+      return
     }
   };
 
+  const payLoad = {
+    "email" : email,
+    "password": password
+  }
+
   const formSubmitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
+    checkFormValidity()
     setIsLoading(true);
 
     try {
-      const response = await fetch("url", {
-        method: "POST",
-        body: JSON.stringify({}),
-        headers: {
-          "Content-Type": "application/json",
+     const user = await signIn(
+        "credentials",
+        {
+         ...payLoad,
+         redirect: false,
+          // callbackUrl: "/signin"
         },
-      });
-
-      const data = await response.json();
-
-      console.log(data);
-
+      )
+      console.log(user )
+      if(!user?.ok){
+        setIsLoading(false);
+        enqueueSnackbar("Incorrect login credentials", {
+          autoHideDuration: 5000,
+          variant: "error"
+        })
+        return
+      }
+      setGetStarted(true)
+      enqueueSnackbar("Successfully logged in", {
+        variant: "success"
+      })
+      // router.push("/available-bounties")
       setEmail("");
       setPassword("");
-      //setIsLoading(false);
-    } catch (error) {
-      console.log(error);
       setIsLoading(false);
+    } catch (error) {
+      setIsLoading(false);
+      enqueueSnackbar(`An error occured ${error}`, {
+        autoHideDuration: 3000,
+        variant: "error"
+      })
+      return
     }
   };
 
@@ -60,6 +90,7 @@ const SignInForm = (props: Props) => {
       <form onSubmit={formSubmitHandler} action="" className="font-dmSans">
         <div className="space-y-[8px] md:space-y-[16px] ">
           <div className="flex flex-col space-y-1">
+            <input type="hidden" name="csrfToken" defaultValue={csrfToken} />
             <label
               htmlFor="email"
               className="font-normal md:font-medium text-base md:text-lg"
@@ -98,16 +129,12 @@ const SignInForm = (props: Props) => {
           </div>
         </div>
 
-        <Link href="available-bounties">
           <button
             type="submit"
             className="mt-[30px] md:mt-[50px]  item just hover:btnBackgroundGradient bg-[#141414] cursor-pointer rounded-[8px] h-[50px] w-full  font-semibold  text-base md:text-lg "
-            disabled={!isFormValid}
           >
             Proceed
           </button>
-        </Link>
-
         <div className="flex flex-row  gap-2 items-center justify-center mt-4 text-base">
           <p className="font-normal text-base md:font-medium md:text-lg">
             {" "}
@@ -127,9 +154,18 @@ const SignInForm = (props: Props) => {
             </div>
           </div>
         )}
+        <GetStartedModal isVisible={getStarted} onClose={() => setGetStarted(false)}/>
       </form>
     </>
   );
 };
 
+SignInForm.getInitialProps = async(context: Context) =>{
+  return{
+    csrfToken: await getCsrfToken(context)
+  } 
+}
+
 export default SignInForm;
+
+

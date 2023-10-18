@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Head from "next/head";
 import { BsArrowUpRight } from "react-icons/bs";
+import { signIn } from "next-auth/react";
 
 const HeroBanner = () => {
     return ( 
@@ -30,15 +31,16 @@ const HeroBanner = () => {
           </div>
 
           <div className="flex flex-col md:flex-row text-white gap-10 justify-center mt-10">
-            <Link href="/signin" className="flex   btnBorderGradient2  ">
+            <Link href="/signin" className="btnBackgroundGradient flex w-[160px] h-[60px] rounded-[50px]">
               <button className="flex justify-center items-center mx-auto gap-8">
-                <p className="">Sign In</p>
+                  <p className="">Sign In</p>
 
-                <div className="btnBackgroundGradient rounded-full w-[40px] h-[40px] items-center flex justify-end ">
-                  <BsArrowUpRight className=" w-6 h-6  mx-auto flex" />
-                </div>
-              </button>
+                  <div className="btnBackgroundGradient rounded-full w-[40px] h-[40px] items-center flex justify-end ">
+                    <BsArrowUpRight className=" w-6 h-6  mx-auto flex" />
+                  </div>
+                </button>
             </Link>
+              
             <Link
               href="/signup"
               className="btnBackgroundGradient flex w-[160px] h-[60px] rounded-[50px]"
