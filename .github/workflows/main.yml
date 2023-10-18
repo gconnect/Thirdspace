@@ -1,4 +1,4 @@
-name: Sync with Repository B
+name: Sync with gconnect forked repo
 
 on:
   push:
