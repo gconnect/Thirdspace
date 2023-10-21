@@ -112,7 +112,7 @@ const BountyView = () => {
           </main>
         </section>
 
-        <section className="w-[50%] mx-auto md:w-[25%] flex flex-col gap-10">
+        <section className="w-[80%] sm:w-[50%] mx-auto md:w-[25%] flex flex-col gap-10">
           <div className="flex flex-col gap-2 px-8 py-5 text-center bg-[#1F1F1F] rounded-lg">
             <p className="text-xl">Bounty Reward</p>
             <p className="text-2xl">$50,000</p>
