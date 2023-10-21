@@ -7,6 +7,7 @@ import CreatorDashboard from "@/components/creator-bounty/dashboard";
 import { useRouter } from "next/router";
 import AvailableBounty from "@/components/creator-bounty/available-bounty";
 import BountyMembers from "@/components/creator-bounty/bounty-members";
+import AccountSettingsModal from "@/components/Settings/AccountSettingsModal";
 
 const bountiesNav: { id: number; value: string; path?: string }[] = [
   { id: 1, value: "Available Bounties" },
@@ -41,7 +42,7 @@ export const CustomNavAlt = <
     path && push(path);
   };
 
-  const activeText = type === 2 ? "text-white" : "text-dark-grey";
+  const activeText = type === 1 ? "" : "";
 
   return (
     <div className={className}>
@@ -53,15 +54,15 @@ export const CustomNavAlt = <
           data-testid={`project-tab_${value}`}
         >
           <span
-            className={`text-center text-input-border text-xs sm:text-sm font-filson-medium mx-2 group-hover:text-accepted mb-[11.58px] mt-[13.5px] inline-block
+            className={`text-center text-input-border text-base sm:text-xl mx-2 group-hover:text-white mb-[11.58px] mt-[13.5px] inline-block
 							${active === value && [activeText]}
-							${wide && "mx-10"}
+							${wide && "px-0"}
 						`}
           >
             {value}
           </span>
           <div
-            className={`rounded-t-[10px] h-[3.5px] bg-accepted
+            className={`rounded-t-[10px] h-[3.5px] bg-white
 							${active !== value && "invisible"}
 						`}
           ></div>
@@ -74,10 +75,24 @@ export const CustomNavAlt = <
 const BountyComponent = () => {
   const [activeTab, setActiveTab] = useState(bountiesNav[0]["value"]);
 
+  const [settings, setSettings] = useState(false);
+  const displaySettingsModal = () => {
+    return setSettings(!settings);
+  };
+
   return (
     <main className="w-full h-auto bg-black-500">
       <div className="flex items-end self-end justify-end mb-10 ">
-        <Avatar size="lg" src="/images/workspace-logo.png"></Avatar>
+        <div onClick={displaySettingsModal}>
+          <Avatar size="lg" src="/images/workspace-logo.png"></Avatar>
+          {settings && (
+            <div className="bg-[#191919] fixed z-10 left-0 top-0 w-screen h-screen overflow-y-auto py-16">
+              <div className="flex margin-auto items-center justify-center">
+                <AccountSettingsModal onclick={displaySettingsModal} />
+              </div>
+            </div>
+          )}{" "}
+        </div>
       </div>
       <section className="flex items-center gap-5 sm:gap-10">
         <SidebarMobile />
@@ -96,7 +111,7 @@ const BountyComponent = () => {
           active={activeTab}
           data={bountiesNav}
           onChange={setActiveTab}
-          className={`flex gap-3 sm:gap-10 text-white`}
+          className={`flex gap-3 sm:gap-10 text-[#999999]`}
         />
       </div>
 
