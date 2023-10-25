@@ -7,14 +7,14 @@ import {
 import Image from "next/image";
 import TaskPanel from "@/components/kanban/task-panel";
 import KanbanDashboard from "@/components/kanban/dashboard";
-import SidebarDesktop from "../../components/Sidebar/desktop";
-import SidebarMobile from "@/components/Sidebar/mobile";
+import CreatorSidebarDesktop from "../../components/Sidebar/creator-desktop";
+import CreatorSidebarMobile from "@/components/Sidebar/creator-mobile";
 
 const KanbanComponent = () => {
   return (
     <main className="w-full h-auto bg-black-500">
       <section className="flex items-center gap-5 sm:gap-10">
-        <SidebarMobile />
+        <CreatorSidebarMobile />
         <KanbanDashboard />
       </section>
 
@@ -110,11 +110,11 @@ const KanbanComponent = () => {
 const Index = () => {
   return (
     <div>
-      <SidebarDesktop>
+      <CreatorSidebarDesktop>
         <div className="pt-6 lg:pt-12 px-4 sm:px-7">
           <KanbanComponent />
         </div>
-      </SidebarDesktop>
+      </CreatorSidebarDesktop>
     </div>
   );
 };

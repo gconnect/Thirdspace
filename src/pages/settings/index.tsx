@@ -3,9 +3,9 @@ import React, { useState } from "react";
 import { profileImage } from "@/assets";
 import { BsFillGearFill } from "react-icons/bs";
 import { CiCircleRemove } from "react-icons/ci";
-import SidebarMobile from "@/components/Sidebar/mobile";
-import SidebarDesktop from "@/components/Sidebar/desktop";
+import CreatorSidebarMobile from "@/components/Sidebar/creator-mobile";
 import AccountSettingsModal from "@/components/Settings/AccountSettingsModal";
+import CreatorSidebarDesktop from "@/components/Sidebar/creator-desktop";
 
 const SettingComponent = () => {
   const [showModal, setShowModal] = useState<boolean>(false);
@@ -35,7 +35,7 @@ const SettingComponent = () => {
 
       <div className="flex flex-row gap-5 mt-10  ">
         <section className=" flex items-center gap-5 sm:gap-10">
-          <SidebarMobile />
+          <CreatorSidebarMobile />
         </section>
         <div className="flex flex-row gap-2 items-center justify-center ">
           <BsFillGearFill className="w-6 h-6" />
@@ -100,9 +100,9 @@ const SettingComponent = () => {
 
 const CreatorSettings = () => {
   return (
-    <SidebarDesktop>
+    <CreatorSidebarDesktop>
       <SettingComponent />
-    </SidebarDesktop>
+    </CreatorSidebarDesktop>
   );
 };
 
