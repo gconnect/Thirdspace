@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const AvailableBounty = () => {
   return (
-    <div className="bg-[#1F1F1F] px-10 py-4 h-auto ">
+    <div className="bg-[#1F1F1F] px-5 sm:px-10 py-4 h-auto ">
       <div className="flex flex-col gap-20">
         {[
           {
@@ -75,34 +75,76 @@ const AvailableBounty = () => {
           },
         ].map((i) => {
           return (
-            <Link href="/bounty-creator/id" key={i.id} className="flex gap-5">
-              <Image
-                width={200}
-                height={170}
-                src={i.imgSrc}
-                alt="bounty-avatar"
-                className="w-[100px] h-[90px]  md:w-[210px] md:h-[180px] float-left "
-              />
-              <div className="flex flex-col w-full ">
-                <p className="text-2xl text-white font-normal">
-                  {i.bountyTitle}
-                </p>
-                <div className="flex flex-row text-sm font-normal justify-between py-3">
-                  <div className="flex gap-2">
-                    <p className="text-[#999]">Start Date:</p>
-                    <p className="text-[#fff]">{i.startDate}</p>
-                  </div>
-                  <div className="flex gap-2">
-                    <p className="text-[#999]">End Date:</p>
-                    <p className="text-[#fff]">{i.endDate}</p>
+            <>
+              <Link
+                href="/bounty-creator/id"
+                key={i.id}
+                className="flex flex-col md:hidden gap-3"
+              >
+                <Image
+                  width={200}
+                  height={170}
+                  src={i.imgSrc}
+                  alt="bounty-avatar"
+                  className="w-[100px] h-[90px] md:w-[210px] md:h-[180px] float-left "
+                />
+                <div className="flex flex-col w-full ">
+                  <p className="text-2xl text-white font-normal">
+                    {i.bountyTitle}
+                  </p>
+                  <div className="flex flex-col sm:flex-row text-sm font-normal justify-between py-3">
+                    <div className="flex gap-2">
+                      <p className="text-[#999]">Start Date:</p>
+                      <p className="text-[#fff]">{i.startDate}</p>
+                    </div>
+                    <div className="flex gap-2">
+                      <p className="text-[#999]">End Date:</p>
+                      <p className="text-[#fff]">{i.endDate}</p>
+                    </div>
                   </div>
                 </div>
-                <p className="text-[#999] text-base">{i.bountyDescription}</p>
-                <p className="bg-zinc-800 py-2 px-5 w-auto flex self-end justify-end ">
-                  Reward: ${i.rewardAmount}
-                </p>
-              </div>
-            </Link>
+                <div>
+                  <p className="text-[#999] text-base">{i.bountyDescription}</p>
+
+                  <p className="bg-zinc-800 mt-5 md:mt-0 py-2 px-5 w-auto flex self-center justify-center ">
+                    Reward: ${i.rewardAmount}
+                  </p>
+                </div>
+              </Link>
+
+              <Link
+                href="/bounty-creator/id"
+                key={i.id}
+                className="hidden md:flex gap-5"
+              >
+                <Image
+                  width={200}
+                  height={170}
+                  src={i.imgSrc}
+                  alt="bounty-avatar"
+                  className="w-[100px] h-[90px]  md:w-[210px] md:h-[180px] float-left "
+                />
+                <div className="flex flex-col w-full ">
+                  <p className="text-2xl text-white font-normal">
+                    {i.bountyTitle}
+                  </p>
+                  <div className="flex flex-row text-sm font-normal justify-between py-3">
+                    <div className="flex gap-2">
+                      <p className="text-[#999]">Start Date:</p>
+                      <p className="text-[#fff]">{i.startDate}</p>
+                    </div>
+                    <div className="flex gap-2">
+                      <p className="text-[#999]">End Date:</p>
+                      <p className="text-[#fff]">{i.endDate}</p>
+                    </div>
+                  </div>
+                  <p className="text-[#999] text-base">{i.bountyDescription}</p>
+                  <p className="bg-zinc-800 py-2 px-5 w-auto flex self-end justify-end ">
+                    Reward: ${i.rewardAmount}
+                  </p>
+                </div>
+              </Link>
+            </>
           );
         })}
       </div>
