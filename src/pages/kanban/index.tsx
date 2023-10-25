@@ -56,7 +56,7 @@ const KanbanComponent = () => {
                   className="h-auto flex items-center "
                 >
                   {/* <img src={list.src} alt="avatar " width={30} height={30} /> */}
-                  <p>{list.name}</p>
+                  {list.name}
                 </option>
               );
             })}
@@ -90,7 +90,7 @@ const KanbanComponent = () => {
                   }}
                   className="h-auto flex items-center "
                 >
-                  <p>{list.date}</p>
+                  {list.date}
                 </option>
               );
             })}
